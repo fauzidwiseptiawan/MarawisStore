@@ -1,0 +1,41 @@
+package com.example.marawisstore.adapter
+
+import android.app.Activity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.annotation.NonNull
+import androidx.viewpager.widget.PagerAdapter
+import com.example.marawisstore.R
+import java.util.ArrayList
+
+class AdapterSlider(var data: ArrayList<Int>, var context: Activity?) : PagerAdapter() {
+    lateinit var layoutInflater: LayoutInflater
+
+    override fun getCount(): Int {
+        return data.size
+    }
+
+    override fun isViewFromObject(view: View, `object`: Any): Boolean {
+        return view == `object`
+    }
+
+    @NonNull
+    override fun instantiateItem(@NonNull container: ViewGroup, position: Int): Any {
+        layoutInflater = LayoutInflater.from(context)
+        val view = layoutInflater.inflate(R.layout.item_slider_header, container, false)
+
+        //Init
+        val imageView: ImageView = view.findViewById(R.id.img_banner)
+
+        imageView.setImageResource(data[position])
+        container.addView(view, 0)
+
+        return view
+    }
+
+    override fun destroyItem(@NonNull container: ViewGroup, position: Int, @NonNull `object`: Any) {
+        container.removeView(`object` as View)
+    }
+}
