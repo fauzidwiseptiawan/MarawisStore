@@ -70,7 +70,7 @@ class LoginActivity : AppCompatActivity() {
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                     finish()
-                    Toast.makeText(this@LoginActivity, "Selamat Datang "+respon.user.nama, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginActivity, "Selamat Datang "+respon.user.username, Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this@LoginActivity, respon.message, Toast.LENGTH_SHORT).show()
                 }

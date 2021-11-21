@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object ApiConfig {
-    private const val BASE_URL = Config.baseUrl + "admin/API/"
+    private const val BASE_URL = Config.baseUrl + "api/"
     private val client: Retrofit
         get() {
             val gson = GsonBuilder()

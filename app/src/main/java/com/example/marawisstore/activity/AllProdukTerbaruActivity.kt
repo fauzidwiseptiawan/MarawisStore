@@ -60,7 +60,7 @@ class AllProdukTerbaruActivity : AppCompatActivity() {
     }
 
     fun getProduk() {
-        ApiConfig.instanceRetrofit.getprodukterbaru().enqueue(object : Callback<ResponModel> {
+        ApiConfig.instanceRetrofit.getProduct().enqueue(object : Callback<ResponModel> {
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
                 //Handle ketika gagal
 

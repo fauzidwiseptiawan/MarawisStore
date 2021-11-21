@@ -83,21 +83,72 @@
                         android:layout_height="130dp"/>
 
                 </LinearLayout>
-                <!--Banner-->
-                <LinearLayout
+                <!--Produk Lainnya-->
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="5dp"/>
                         <LinearLayout
+                            android:background="@drawable/background_lainnya"
                             android:orientation="vertical"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/rv_promo"
-                                android:layout_below="@id/vp_slider"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent" />
-                        </LinearLayout>
-                </LinearLayout>
+                            <!--Title Swip-->
+                                <LinearLayout
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginRight="15dp"
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+                                        <TextView
+                                            android:textColor="@color/colorBlue"
+                                            android:layout_weight="1"
+                                            android:layout_marginTop="15dp"
+                                            android:textSize="20dp"
+                                            android:textStyle="bold"
+                                            android:text="Produk Terbaru"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"/>
+                                        <TextView
+                                            android:padding="10dp"
+                                            android:clickable="true"
+                                            android:foreground="?android:attr/selectableItemBackground"
+                                            android:id="@+id/tv_ProdukTerbaru"
+                                            android:layout_marginTop="15dp"
+                                            android:textAllCaps="false"
+                                            android:textColor="@color/colorBlue"
+                                            android:textSize="12dp"
+                                            android:text="Selengkapnya"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"/>
+                                    </LinearLayout>
+                                    <ScrollView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+                                        <LinearLayout
+                                            android:orientation="horizontal"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+                                            <!--Card Produk Lainnya-->
+                                            <LinearLayout
+                                                android:orientation="vertical"
+                                                android:layout_width="match_parent"
+                                                android:layout_marginBottom="15dp"
+                                                android:layout_height="wrap_content">
+                                                <ProgressBar
+                                                    android:id="@+id/pb"
+                                                    android:layout_width="30dp"
+                                                    android:layout_height="30dp"
+                                                    android:layout_gravity="center_horizontal"
+                                                    android:layout_marginTop="10dp" />
+                                                <androidx.recyclerview.widget.RecyclerView
+                                                    android:layout_marginTop="5dp"
+                                                    android:id="@+id/rv_produk"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content" />
+                                            </LinearLayout>
+                                        </LinearLayout>
+                                    </ScrollView>
+                                </LinearLayout>
                 <!--Produk Terbaru-->
                 <LinearLayout
                     android:paddingBottom="15dp"
@@ -120,14 +171,14 @@
                             android:layout_marginTop="15dp"
                             android:textSize="20dp"
                             android:textStyle="bold"
-                            android:text="Produk Terbaru"
+                            android:text="Produk Lainnya"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
                         <TextView
                             android:padding="10dp"
                             android:clickable="true"
                             android:foreground="?android:attr/selectableItemBackground"
-                            android:id="@+id/tv_ProdukTerbaru"
+                            android:id="@+id/tv_ProdukLain"
                             android:layout_marginTop="15dp"
                             android:textSize="12dp"
                             android:textColor="@color/colorWhite"
@@ -152,77 +203,11 @@
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginTop="10dp" />
                                 <androidx.recyclerview.widget.RecyclerView
-                                    android:id="@+id/rv_produk"
+                                    android:id="@+id/rv_produk_lainnya"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content" />
 
                             </LinearLayout>
-                </LinearLayout>
-                <!--Produk Lainnya-->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp"/>
-                <LinearLayout
-                    android:background="@drawable/background_lainnya"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <!--Title Swip-->
-                    <LinearLayout
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:textColor="@color/colorBlue"
-                            android:layout_weight="1"
-                            android:layout_marginTop="15dp"
-                            android:textSize="20dp"
-                            android:textStyle="bold"
-                            android:text="Produk Lainnya"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:padding="10dp"
-                            android:clickable="true"
-                            android:foreground="?android:attr/selectableItemBackground"
-                            android:id="@+id/tv_ProdukLain"
-                            android:layout_marginTop="15dp"
-                            android:textAllCaps="false"
-                            android:textColor="@color/colorBlue"
-                            android:textSize="12dp"
-                            android:text="Selengkapnya"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
-                    <ScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <LinearLayout
-                            android:orientation="horizontal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <!--Card Produk Lainnya-->
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="match_parent"
-                                android:layout_marginBottom="15dp"
-                                android:layout_height="wrap_content">
-                                <ProgressBar
-                                    android:id="@+id/pb"
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginTop="10dp" />
-                                <androidx.recyclerview.widget.RecyclerView
-                                    android:layout_marginTop="5dp"
-                                    android:id="@+id/rv_produk_lainnya"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content" />
-                            </LinearLayout>
-                        </LinearLayout>
-                    </ScrollView>
                 </LinearLayout>
             </LinearLayout>
 

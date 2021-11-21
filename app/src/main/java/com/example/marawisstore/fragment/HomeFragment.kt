@@ -35,7 +35,6 @@ import retrofit2.Response
 class HomeFragment : Fragment() {
 
     lateinit var vpSlider: ViewPager
-    lateinit var rvPromo: RecyclerView
     lateinit var rvProduk: RecyclerView
     lateinit var rvProdukLainnya: RecyclerView
     lateinit var tvProdukTerbaru: TextView
@@ -54,8 +53,7 @@ class HomeFragment : Fragment() {
 
         init(view)
         getProduk()
-        getKategori()
-        lainnyaProduk()
+        getProdukLainnya()
         mainButton()
         refreshApp()
 
@@ -65,7 +63,7 @@ class HomeFragment : Fragment() {
     private fun refreshApp() {
         swRefresh.setOnRefreshListener {
             getProduk()
-            lainnyaProduk()
+            getProdukLainnya()
             swRefresh.isRefreshing = false
         }
     }
@@ -79,9 +77,9 @@ class HomeFragment : Fragment() {
             startActivity(Intent(activity, AllProdukTerbaruActivity::class.java))
         }
 
-        tvProdukLain.setOnClickListener {
-            startActivity(Intent(activity, AllProdukLainActivity::class.java))
-        }
+//        tvProdukLain.setOnClickListener {
+//            startActivity(Intent(activity, AllProdukLainActivity::class.java))
+//        }
     }
 
 
@@ -100,25 +98,18 @@ class HomeFragment : Fragment() {
         val layoutManager2 = LinearLayoutManager(activity)
         layoutManager2.orientation = LinearLayoutManager.HORIZONTAL
 
-        val layoutManager3 = LinearLayoutManager(activity)
-        layoutManager3.orientation = LinearLayoutManager.HORIZONTAL
-
-        rvPromo.adapter = AdapterPromo(requireActivity(), listkategori)
-        rvPromo.layoutManager = layoutManager
-
         rvProduk.adapter = AdapterProdukTerbaru(requireActivity(), listProduk)
-        rvProduk.layoutManager = layoutManager2
+        rvProduk.layoutManager = layoutManager
 
         rvProdukLainnya.adapter = AdapterProdukLainnya(requireActivity(), listProdukLainnya)
-        rvProdukLainnya.layoutManager = layoutManager3
+        rvProdukLainnya.layoutManager = layoutManager2
     }
 
     private var listProduk: ArrayList<Produk> = ArrayList()
     private var listProdukLainnya: ArrayList<Produk> = ArrayList()
-    private var listkategori: ArrayList<Produk> = ArrayList()
 
     fun getProduk() {
-        ApiConfig.instanceRetrofit.getprodukterbaru().enqueue(object : Callback<ResponModel> {
+        ApiConfig.instanceRetrofit.getProduct().enqueue(object : Callback<ResponModel> {
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
                 //Handle ketika gagal
                 pb.visibility = View.GONE
@@ -128,7 +119,7 @@ class HomeFragment : Fragment() {
 
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 if (response.isSuccessful) {
-                    pbProduk.visibility = View.GONE
+                    pb.visibility = View.GONE
                     val res = response.body()!!
                     if (res.success == 1) {
                         listProduk = res.produk
@@ -143,37 +134,18 @@ class HomeFragment : Fragment() {
 
     }
 
-    fun getKategori() {
-        ApiConfig.instanceRetrofit.getallproduk().enqueue(object : Callback<ResponModel> {
+    fun getProdukLainnya() {
+        ApiConfig.instanceRetrofit.getProduct().enqueue(object : Callback<ResponModel> {
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
                 //Handle ketika gagal
-
-            }
-
-            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-                val res = response.body()!!
-                if (res.success == 1) {
-                    listkategori = res.produk
-                    displayProduk()
-                }
-            }
-
-        })
-
-    }
-
-    fun lainnyaProduk() {
-        ApiConfig.instanceRetrofit.getproduklainnya().enqueue(object : Callback<ResponModel> {
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                //Handle ketika gagal
-                pb.visibility = View.GONE
+                pbProduk.visibility = View.GONE
                 Toast.makeText(activity,"Error:"+t.message, Toast.LENGTH_SHORT).show()
+
             }
 
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-
                 if (response.isSuccessful) {
-                    pb.visibility = View.GONE
+                    pbProduk.visibility = View.GONE
                     val res = response.body()!!
                     if (res.success == 1) {
                         listProdukLainnya = res.produk
@@ -183,13 +155,13 @@ class HomeFragment : Fragment() {
                     Toast.makeText(activity, response.message(), Toast.LENGTH_SHORT).show()
                 }
             }
+
         })
 
     }
 
     fun init(view: View) {
         vpSlider        = view.findViewById(R.id.vp_slider)
-        rvPromo         = view.findViewById(R.id.rv_promo)
         swRefresh       = view.findViewById(R.id.swipeToRefresh)
         tvProdukTerbaru = view.findViewById(R.id.tv_ProdukTerbaru)
         rvProduk        = view.findViewById(R.id.rv_produk)

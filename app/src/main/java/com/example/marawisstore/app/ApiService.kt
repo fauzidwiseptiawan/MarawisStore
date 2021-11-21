@@ -8,37 +8,23 @@ import retrofit2.http.*
 interface ApiService {
 
     @FormUrlEncoded
-    @POST("Api_pelanggan/register")
+    @POST("costumer/register")
     fun register(
-        @Field("nama") name : String,
+        @Field("username") username : String,
         @Field("email") email : String,
         @Field("telpon") telpon : String,
         @Field("password") password : String
     ):Call<ResponModel>
 
     @FormUrlEncoded
-    @POST("Api_pelanggan/login")
+    @POST("costumer/login")
     fun login(
             @Field("email") email: String,
             @Field("password") password: String
     ):Call<ResponModel>
 
-    @GET("Api_produk/allProduk")
-    fun getallproduk():Call<ResponModel>
-
-    @GET("Api_produk/allProdukTerbaru")
-    fun getprodukterbaru():Call<ResponModel>
-
-    @GET("Api_kategori/allKategori")
-    fun getkategori():Call<ResponModel>
-
-    @GET("Api_produk/allProdukLainnya")
-    fun getproduklainnya():Call<ResponModel>
-
-    @GET("Api_kategori/allProdukLainnya")
-    fun getprodukkategori(
-            @Query("produk_kategori") id: Int
-    ):Call<ResponModel>
+    @GET("product")
+    fun getProduct():Call<ResponModel>
 
     @GET("province")
     fun getProvinsi(

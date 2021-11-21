@@ -9,7 +9,7 @@ import com.google.gson.Gson
 class SharedPref(activity: Activity) {
 
     val login  = "login"
-    val nama   = "nama"
+    val username   = "username"
     val email  = "email"
     val telpon = "telpon"
 

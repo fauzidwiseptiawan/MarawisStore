@@ -12,26 +12,18 @@ public class Produk implements Serializable {
     @ColumnInfo(name = "idTb")
     public int idTb;
 
-    public int id_produk;
-    public int id_user;
-    public int id_katergori;
     public String kode_produk;
+    public String user_id;
+    public String category_id;
     public String nama_produk;
-    public String slug_produk;
     public String keterangan;
-    public String keywords;
-    public String telepon;
-    public String posisi;
     public String harga;
-    public int diskon;
     public String stok;
     public String berat;
     public String status_produk;
-    public String tanggal_post;
-    public String tanggal_update;
-    public String gambar;
-    public String img;
-    public String nama_kategori;
+    public String created_at;
+    public String updated_at;
+    public String image;
 
     public int jumlah = 1;
     public int jumlahfav = 1;

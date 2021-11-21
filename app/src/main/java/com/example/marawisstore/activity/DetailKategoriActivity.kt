@@ -53,24 +53,24 @@ class DetailKategoriActivity : AppCompatActivity() {
     }
 
 
-    private fun getKategori(id: Int) {
-        ApiConfig.instanceRetrofit.getprodukkategori(id).enqueue(object : Callback<ResponModel> {
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                //Handle ketika gagal
-
-            }
-
-            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-                val res = response.body()!!
-                if (res.success == 1) {
-                    listProduk = res.produk
-                    displayProduk()
-                }
-            }
-
-        })
-
-    }
+//    private fun getKategori(id: Int) {
+//        ApiConfig.instanceRetrofit.getprodukkategori(id).enqueue(object : Callback<ResponModel> {
+//            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+//                //Handle ketika gagal
+//
+//            }
+//
+//            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+//                val res = response.body()!!
+//                if (res.success == 1) {
+//                    listProduk = res.produk
+//                    displayProduk()
+//                }
+//            }
+//
+//        })
+//
+//    }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

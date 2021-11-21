@@ -42,16 +42,16 @@ class AdapterAllProduk(var activity: Activity, var data:ArrayList<Produk>): Recy
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val a = data[position]
 
-        if (a.diskon != 0){
-            holder.tvDiskon.visibility = View.VISIBLE
-            holder.tvDiskon.text = Helper().gantiRupiah(data[position].diskon)
-            holder.tvDiskon.paintFlags = holder.tvDiskon.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-        } else{
-            holder.tvDiskon.visibility = View.INVISIBLE
-        }
+//        if (a.diskon != 0){
+//            holder.tvDiskon.visibility = View.VISIBLE
+//            holder.tvDiskon.text = Helper().gantiRupiah(data[position].diskon)
+//            holder.tvDiskon.paintFlags = holder.tvDiskon.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+//        } else{
+//            holder.tvDiskon.visibility = View.INVISIBLE
+//        }
         holder.tvNamaProduk.text = data[position].nama_produk
         holder.tvHargaProduk.text = Helper().gantiRupiah(data[position].harga)
-        var gambar = Config.produkUrl + data[position].gambar
+        var gambar = Config.produkUrl + data[position].image
 
         Picasso.get()
                 .load(gambar)

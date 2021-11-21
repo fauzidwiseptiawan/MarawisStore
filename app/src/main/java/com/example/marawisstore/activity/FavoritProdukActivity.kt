@@ -93,7 +93,7 @@ class FavoritProdukActivity : AppCompatActivity() {
 
             override fun onItemClick(produk: Produk) {
                 val myDb: MyDatabase = MyDatabase.getInstance(applicationContext)!! // call database
-                val data = myDb.daoKeranjang().getProduk(produk.id_produk) // get produk
+                val data = myDb.daoKeranjang().getProduk(produk.kode_produk) // get produk
                 if (data == null){
                     insert(produk)
                 }else{

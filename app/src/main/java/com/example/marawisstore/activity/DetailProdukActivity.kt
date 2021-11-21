@@ -53,7 +53,7 @@ class DetailProdukActivity : AppCompatActivity() {
         getInfo()
         init()
         mainButton()
-        lainnyaProduk()
+//        lainnyaProduk()
         checkKeranjang()
         refreshApp()
     }
@@ -61,7 +61,7 @@ class DetailProdukActivity : AppCompatActivity() {
     private fun refreshApp() {
         swipeToRefresh.setOnRefreshListener {
             getInfo()
-            lainnyaProduk()
+//            lainnyaProduk()
             swipeToRefresh.isRefreshing = false
         }
     }
@@ -69,7 +69,7 @@ class DetailProdukActivity : AppCompatActivity() {
     var totalHarga = 0
     var totalBerat = 0
     private fun hitungTotal(){
-        val listProduk = myDb.daoKeranjang().getProduk(produk.id_produk)
+        val listProduk = myDb.daoKeranjang().getProduk(produk.kode_produk)
 
             if(listProduk == null){
                 val berat = Integer.valueOf(produk.berat)
@@ -81,7 +81,7 @@ class DetailProdukActivity : AppCompatActivity() {
 
     private fun mainButton(){
         btn_keranjang.setOnClickListener {
-            val data = myDb.daoKeranjang().getProduk(produk.id_produk)
+            val data = myDb.daoKeranjang().getProduk(produk.kode_produk)
             if(data == null){
                 insert()
             } else {
@@ -90,7 +90,7 @@ class DetailProdukActivity : AppCompatActivity() {
             }
         }
         btn_favorit.setOnClickListener {
-            val favorit = myDbFav.daoFavorit().getProdukFav(produk.id_produk)
+            val favorit = myDbFav.daoFavorit().getProdukFav(produk.kode_produk)
             if(favorit == null){
                 insertFav()
             }else{
@@ -170,13 +170,13 @@ class DetailProdukActivity : AppCompatActivity() {
         val data = intent.getStringExtra("extra")
         produk = Gson().fromJson<Produk>(data, Produk::class.java)
 
-        if (produk.diskon != 0){
-            tv_diskon_P.visibility = View.VISIBLE
-            tv_diskon_P.text = Helper().gantiRupiah(produk.diskon)
-            tv_diskon_P.paintFlags = tv_diskon_P.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-        } else{
-            tv_diskon_P.visibility = View.INVISIBLE
-        }
+//        if (produk.diskon != 0){
+//            tv_diskon_P.visibility = View.VISIBLE
+//            tv_diskon_P.text = Helper().gantiRupiah(produk.diskon)
+//            tv_diskon_P.paintFlags = tv_diskon_P.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+//        } else{
+//            tv_diskon_P.visibility = View.INVISIBLE
+//        }
 
         //Set Value
         tv_nama.text = produk.nama_produk
@@ -186,7 +186,7 @@ class DetailProdukActivity : AppCompatActivity() {
         tv_berat.text = produk.berat+" Gram"
         tv_deskripsi.text = produk.keterangan
 
-        var img = Config.produkUrl + produk.gambar
+        var img = Config.produkUrl + produk.image
 
         Picasso.get()
                 .load(img)
@@ -219,23 +219,23 @@ class DetailProdukActivity : AppCompatActivity() {
 
     private var listProduk: ArrayList<Produk> = ArrayList()
 
-    private fun lainnyaProduk() {
-        ApiConfig.instanceRetrofit.getproduklainnya().enqueue(object : Callback<ResponModel> {
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                //Handle ketika gagal
-            }
-
-            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-                val res = response.body()!!
-                if (res.success == 1) {
-                    listProduk = res.produk
-                    displayProduk()
-                }
-            }
-
-        })
-
-    }
+//    private fun lainnyaProduk() {
+//        ApiConfig.instanceRetrofit.getproduklainnya().enqueue(object : Callback<ResponModel> {
+//            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+//                //Handle ketika gagal
+//            }
+//
+//            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+//                val res = response.body()!!
+//                if (res.success == 1) {
+//                    listProduk = res.produk
+//                    displayProduk()
+//                }
+//            }
+//
+//        })
+//
+//    }
 
     override fun onResume() {
         checkKeranjang()

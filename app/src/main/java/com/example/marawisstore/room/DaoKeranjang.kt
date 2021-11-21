@@ -15,11 +15,11 @@ interface DaoKeranjang {
     @Update
     fun update(data: Produk): Int
 
-    @Query("SELECT * from keranjang ORDER BY id_produk ASC")
+    @Query("SELECT * from keranjang ORDER BY kode_produk ASC")
     fun getAll(): List<Produk>
 
-    @Query("SELECT * FROM keranjang WHERE id_produk = :id LIMIT 1")
-    fun getProduk(id: Int): Produk
+    @Query("SELECT * FROM keranjang WHERE kode_produk = :id LIMIT 1")
+    fun getProduk(id: String): Produk
 
     @Query("DELETE FROM keranjang")
     fun deleteAll(): Int

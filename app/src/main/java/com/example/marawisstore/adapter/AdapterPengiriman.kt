@@ -52,7 +52,7 @@ class AdapterPengiriman(var activity: Activity, var data: ArrayList<Produk>): Re
         var jumlah = data[position].jumlah
         holder.tvJumlah.text = jumlah.toString() + " barang " + "(" + produk.berat +" gram)"
 
-        var gambar = Config.produkUrl + data[position].gambar
+        var gambar = Config.produkUrl + data[position].image
         Picasso.get()
             .load(gambar)
             .placeholder(R.drawable.blank)

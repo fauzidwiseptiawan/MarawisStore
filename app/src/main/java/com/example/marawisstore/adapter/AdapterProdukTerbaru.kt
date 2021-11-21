@@ -2,7 +2,6 @@ package com.example.marawisstore.adapter
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +14,6 @@ import com.example.marawisstore.activity.DetailProdukActivity
 import com.example.marawisstore.helper.Helper
 import com.example.marawisstore.model.Produk
 import com.example.marawisstore.util.Config
-import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import java.util.*
@@ -42,16 +40,16 @@ class AdapterProdukTerbaru(var activity: Activity, var data:ArrayList<Produk>): 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val a = data[position]
 
-        if (a.diskon != 0){
-            holder.tvDiskon.visibility = View.VISIBLE
-            holder.tvDiskon.text = Helper().gantiRupiah(data[position].diskon)
-            holder.tvDiskon.paintFlags = holder.tvDiskon.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-        } else{
-            holder.tvDiskon.visibility = View.INVISIBLE
-        }
+//        if (a.diskon != 0){
+//            holder.tvDiskon.visibility = View.VISIBLE
+//            holder.tvDiskon.text = Helper().gantiRupiah(data[position].diskon)
+//            holder.tvDiskon.paintFlags = holder.tvDiskon.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+//        } else{
+//            holder.tvDiskon.visibility = View.INVISIBLE
+//        }
         holder.tvNamaProduk.text = data[position].nama_produk
         holder.tvHargaProduk.text = Helper().gantiRupiah(data[position].harga)
-        var gambar = Config.produkUrl + data[position].gambar
+        var gambar = Config.produkUrl + data[position].image
 
         Picasso.get()
             .load(gambar)

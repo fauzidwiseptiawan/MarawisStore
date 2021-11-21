@@ -19,7 +19,7 @@ abstract class MyDatabaseFavorit : RoomDatabase() {
                 synchronized(MyDatabaseFavorit::class) {
                     INSTANCE = Room.databaseBuilder(
                         context.applicationContext,
-                        MyDatabaseFavorit::class.java, "MyDatabase1322" // Database Name
+                        MyDatabaseFavorit::class.java, "MyDatabase14" // Database Name
                     ).allowMainThreadQueries().build()
                 }
             }

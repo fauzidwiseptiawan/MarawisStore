@@ -55,7 +55,7 @@ class AdapterFavorit(var activity: Activity, var data: ArrayList<Produk>, var li
             listener.onItemClick(produk)
         }
 
-        var gambar = Config.produkUrl + data[position].gambar
+        var gambar = Config.produkUrl + data[position].image
         Picasso.get()
             .load(gambar)
             .placeholder(R.drawable.blank)

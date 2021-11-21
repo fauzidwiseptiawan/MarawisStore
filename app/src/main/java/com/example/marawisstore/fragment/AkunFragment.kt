@@ -70,7 +70,7 @@ class AkunFragment : Fragment() {
 
         val user = s.getUser()!!
 
-        tvNamaProfil.text = user.nama
+        tvNamaProfil.text = user.username
         tvTelponProfil.text = user.telpon
         tvEmailProfil.text = user.email
     }

@@ -43,25 +43,7 @@ class AdapterPromo(var activity: Activity, var data:ArrayList<Produk>): Recycler
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.namaPromo.text = data[position].posisi
-        var gambar = Config.produkUrl + data[position].img
-
-        Picasso.get()
-            .load(gambar)
-            .placeholder(R.drawable.blank)
-            .error(R.drawable.blank)
-            .fit()
-            .centerCrop()
-            .into(holder.imgPromo)
-
-
-        holder.layout.setOnClickListener {
-            val activiti = Intent(activity, DetailKategoriActivity::class.java)
-            val str = Gson().toJson(data[position], Produk::class.java)
-
-            activiti.putExtra("extra",str)
-            activity.startActivity(activiti)
-        }
+      
 
     }
 
