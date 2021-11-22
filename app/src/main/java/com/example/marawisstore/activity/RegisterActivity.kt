@@ -90,7 +90,7 @@ class RegisterActivity : AppCompatActivity() {
                     finish()
                     Toast.makeText(this@RegisterActivity, respon.message, Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(this@RegisterActivity, respon.auth.email, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@RegisterActivity, respon.message, Toast.LENGTH_SHORT).show()
                 }
             }
         })

@@ -23,8 +23,20 @@ interface ApiService {
             @Field("password") password: String
     ):Call<ResponModel>
 
-    @GET("product")
-    fun getProduct():Call<ResponModel>
+    @GET("product/terkait")
+    fun getProductTerkait():Call<ResponModel>
+
+    @GET("product/terbaru")
+    fun getProductTerbaru():Call<ResponModel>
+
+    @GET("product/lainnya")
+    fun getProductLainnya():Call<ResponModel>
+
+    @GET("product/terbaruAll")
+    fun getProductTerbaruAll():Call<ResponModel>
+
+    @GET("product/lainnyaAll")
+    fun getProductLainnyaAll():Call<ResponModel>
 
     @GET("province")
     fun getProvinsi(

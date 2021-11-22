@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marawisstore.R
 import com.example.marawisstore.adapter.AdapterProdukTerbaru
+import com.example.marawisstore.adapter.AdapterProdukTerkait
 import com.example.marawisstore.app.ApiConfig
 import com.example.marawisstore.helper.Helper
 import com.example.marawisstore.model.Produk
@@ -38,7 +39,6 @@ import retrofit2.Response
 
 class DetailProdukActivity : AppCompatActivity() {
 
-    private lateinit var rvProduk : RecyclerView
     lateinit var myDb: MyDatabase
     lateinit var myDbFav: MyDatabaseFavorit
     lateinit var produk: Produk
@@ -51,9 +51,8 @@ class DetailProdukActivity : AppCompatActivity() {
         myDbFav = MyDatabaseFavorit.getInstance(this)!! // call database favorit
 
         getInfo()
-        init()
         mainButton()
-//        lainnyaProduk()
+        getProdukTerkait()
         checkKeranjang()
         refreshApp()
     }
@@ -61,7 +60,7 @@ class DetailProdukActivity : AppCompatActivity() {
     private fun refreshApp() {
         swipeToRefresh.setOnRefreshListener {
             getInfo()
-//            lainnyaProduk()
+            getProdukTerkait()
             swipeToRefresh.isRefreshing = false
         }
     }
@@ -205,37 +204,34 @@ class DetailProdukActivity : AppCompatActivity() {
         return super.onSupportNavigateUp()
     }
 
-    private fun init() {
-        rvProduk = findViewById(R.id.rv_produk)
-    }
 
     private fun displayProduk(){
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
 
-        rvProduk.adapter = AdapterProdukTerbaru(this, listProduk)
-        rvProduk.layoutManager = layoutManager
+        rv_produkTerkait.adapter = AdapterProdukTerkait(this, listProduk)
+        rv_produkTerkait.layoutManager = layoutManager
     }
 
     private var listProduk: ArrayList<Produk> = ArrayList()
 
-//    private fun lainnyaProduk() {
-//        ApiConfig.instanceRetrofit.getproduklainnya().enqueue(object : Callback<ResponModel> {
-//            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-//                //Handle ketika gagal
-//            }
-//
-//            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-//                val res = response.body()!!
-//                if (res.success == 1) {
-//                    listProduk = res.produk
-//                    displayProduk()
-//                }
-//            }
-//
-//        })
-//
-//    }
+    private fun getProdukTerkait() {
+        ApiConfig.instanceRetrofit.getProductTerkait().enqueue(object : Callback<ResponModel> {
+            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                //Handle ketika gagal
+            }
+
+            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+                val res = response.body()!!
+                if (res.success == 1) {
+                    listProduk = res.produk
+                    displayProduk()
+                }
+            }
+
+        })
+
+    }
 
     override fun onResume() {
         checkKeranjang()

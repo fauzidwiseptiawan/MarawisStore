@@ -52,7 +52,7 @@ class HomeFragment : Fragment() {
         myDbFav = MyDatabaseFavorit.getInstance(requireActivity())!!
 
         init(view)
-        getProduk()
+        getProdukTerbaru()
         getProdukLainnya()
         mainButton()
         refreshApp()
@@ -62,7 +62,7 @@ class HomeFragment : Fragment() {
 
     private fun refreshApp() {
         swRefresh.setOnRefreshListener {
-            getProduk()
+            getProdukTerbaru()
             getProdukLainnya()
             swRefresh.isRefreshing = false
         }
@@ -77,9 +77,9 @@ class HomeFragment : Fragment() {
             startActivity(Intent(activity, AllProdukTerbaruActivity::class.java))
         }
 
-//        tvProdukLain.setOnClickListener {
-//            startActivity(Intent(activity, AllProdukLainActivity::class.java))
-//        }
+        tvProdukLain.setOnClickListener {
+            startActivity(Intent(activity, AllProdukLainActivity::class.java))
+        }
     }
 
 
@@ -108,13 +108,12 @@ class HomeFragment : Fragment() {
     private var listProduk: ArrayList<Produk> = ArrayList()
     private var listProdukLainnya: ArrayList<Produk> = ArrayList()
 
-    fun getProduk() {
-        ApiConfig.instanceRetrofit.getProduct().enqueue(object : Callback<ResponModel> {
+    fun getProdukTerbaru() {
+        ApiConfig.instanceRetrofit.getProductTerbaru().enqueue(object : Callback<ResponModel> {
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
                 //Handle ketika gagal
                 pb.visibility = View.GONE
                 Toast.makeText(activity,"Error:"+t.message, Toast.LENGTH_SHORT).show()
-
             }
 
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
@@ -124,6 +123,8 @@ class HomeFragment : Fragment() {
                     if (res.success == 1) {
                         listProduk = res.produk
                         displayProduk()
+                    }else{
+                        pb.visibility = View.VISIBLE
                     }
                 }else {
                     Toast.makeText(activity, response.message(), Toast.LENGTH_SHORT).show()
@@ -135,7 +136,7 @@ class HomeFragment : Fragment() {
     }
 
     fun getProdukLainnya() {
-        ApiConfig.instanceRetrofit.getProduct().enqueue(object : Callback<ResponModel> {
+        ApiConfig.instanceRetrofit.getProductLainnya().enqueue(object : Callback<ResponModel> {
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
                 //Handle ketika gagal
                 pbProduk.visibility = View.GONE
@@ -150,6 +151,8 @@ class HomeFragment : Fragment() {
                     if (res.success == 1) {
                         listProdukLainnya = res.produk
                         displayProduk()
+                    }else{
+                        pb.visibility = View.VISIBLE
                     }
                 }else {
                     Toast.makeText(activity, response.message(), Toast.LENGTH_SHORT).show()

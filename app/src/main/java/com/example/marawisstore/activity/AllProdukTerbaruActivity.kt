@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.GridLayoutAnimationController
 import android.widget.GridView
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.marawisstore.R
@@ -19,6 +20,7 @@ import com.example.marawisstore.room.MyDatabase
 import kotlinx.android.synthetic.main.activity_all_produk_terbaru.*
 import kotlinx.android.synthetic.main.activity_favorit_produk.*
 import kotlinx.android.synthetic.main.activity_favorit_produk.rv_ProdukFav
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.toolbar_baru.*
 import kotlinx.android.synthetic.main.toolbar_costume.*
 import retrofit2.Call
@@ -39,7 +41,7 @@ class AllProdukTerbaruActivity : AppCompatActivity() {
         myDb = MyDatabase.getInstance(this)!! // call database keranjang
 
         displayProduk()
-        getProduk()
+        getProdukTerbaruAll()
         checkKeranjang()
         mainButton()
     }
@@ -59,8 +61,8 @@ class AllProdukTerbaruActivity : AppCompatActivity() {
         rv_all_produk_baru.layoutManager = layoutManager
     }
 
-    fun getProduk() {
-        ApiConfig.instanceRetrofit.getProduct().enqueue(object : Callback<ResponModel> {
+    fun getProdukTerbaruAll() {
+        ApiConfig.instanceRetrofit.getProductTerbaruAll().enqueue(object : Callback<ResponModel> {
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
                 //Handle ketika gagal
 

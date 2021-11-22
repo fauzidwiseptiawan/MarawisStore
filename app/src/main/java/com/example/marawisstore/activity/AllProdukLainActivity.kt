@@ -37,7 +37,7 @@ class AllProdukLainActivity : AppCompatActivity() {
         myDb = MyDatabase.getInstance(this)!! // call database keranjang
 
         displayProduk()
-//        getProduk()
+        getProdukLainnyaAll()
         checkKeranjang()
         mainButton()
     }
@@ -57,27 +57,27 @@ class AllProdukLainActivity : AppCompatActivity() {
         rv_all_produk_lainnya.layoutManager = layoutManager
     }
 
-//    fun getProduk() {
-//        ApiConfig.instanceRetrofit.getproduklainnya().enqueue(object : Callback<ResponModel> {
-//            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-//                //Handle ketika gagal
-//
-//            }
-//
-//            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-//
-//                if (response.isSuccessful) {
-//                    val res = response.body()!!
-//                    if (res.success == 1) {
-//                        listProduk = res.produk
-//                        displayProduk()
-//                    }
-//                }
-//            }
-//
-//        })
-//
-//    }
+    fun getProdukLainnyaAll() {
+        ApiConfig.instanceRetrofit.getProductLainnya().enqueue(object : Callback<ResponModel> {
+            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                //Handle ketika gagal
+
+            }
+
+            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+
+                if (response.isSuccessful) {
+                    val res = response.body()!!
+                    if (res.success == 1) {
+                        listProduk = res.produk
+                        displayProduk()
+                    }
+                }
+            }
+
+        })
+
+    }
 
     private fun checkKeranjang(){
         val dataKeranjang = myDb.daoKeranjang().getAll()
