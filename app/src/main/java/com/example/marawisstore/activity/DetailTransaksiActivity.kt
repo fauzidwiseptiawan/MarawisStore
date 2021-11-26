@@ -23,6 +23,8 @@ class DetailTransaksiActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail_transaksi)
         Helper().setToolbar(this, toolbar_baru, "Detail Riwayat")
 
+//        update origin
+
         val json = intent.getStringExtra("transaksi")
         val transaksi = Gson().fromJson(json, Transaksi::class.java)
 
