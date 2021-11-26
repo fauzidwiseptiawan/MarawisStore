@@ -3,7 +3,6 @@ package com.example.marawisstore.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.marawisstore.MainActivity
 import com.example.marawisstore.R
 import com.example.marawisstore.helper.SharedPref
 import kotlinx.android.synthetic.main.activity_masuk.*

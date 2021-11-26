@@ -6,27 +6,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.example.marawisstore.MainActivity
 import com.example.marawisstore.R
 import com.example.marawisstore.activity.*
 import com.example.marawisstore.helper.SharedPref
-import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.fragment_akun.*
-import org.jetbrains.annotations.NotNull
 
 class AkunFragment : Fragment() {
 
     lateinit var s:SharedPref
     lateinit var btnLogout:TextView
-    lateinit var wishList:RelativeLayout
-    lateinit var keranjang:RelativeLayout
+    lateinit var btnWishList:RelativeLayout
+    lateinit var btnRiwayat:RelativeLayout
+    lateinit var btnKeranjang:RelativeLayout
     lateinit var tvNamaProfil:TextView
     lateinit var tvTelponProfil:TextView
     lateinit var tvEmailProfil:TextView
@@ -37,27 +31,33 @@ class AkunFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_akun,container,false)
-
         init(view)
 
         s = SharedPref(requireActivity())
 
+        mainButton()
+        setData()
+        return view
+    }
+
+    fun mainButton(){
         btnLogout.setOnClickListener{
             startActivity(Intent(activity, MainActivity::class.java))
             Toast.makeText(activity,"Anda berhasil logout", Toast.LENGTH_SHORT).show()
             s.setStatusLogin(false)
         }
 
-        wishList.setOnClickListener {
+        btnWishList.setOnClickListener {
             startActivity(Intent(activity, FavoritProdukActivity::class.java))
         }
 
-        keranjang.setOnClickListener {
+        btnKeranjang.setOnClickListener {
             startActivity(Intent(activity, KeranjangProdukActivity::class.java))
         }
 
-        setData()
-        return view
+        btnRiwayat.setOnClickListener {
+            startActivity(Intent(activity, RiwayatActivity::class.java))
+        }
     }
 
     fun setData() {
@@ -77,8 +77,9 @@ class AkunFragment : Fragment() {
 
     private fun init(view: View) {
         btnLogout = view.findViewById(R.id.btn_prosesLogout)
-        wishList = view.findViewById(R.id.wishList)
-        keranjang = view.findViewById(R.id.keranjang)
+        btnRiwayat = view.findViewById(R.id.btn_riwayat)
+        btnWishList = view.findViewById(R.id.btn_wishList)
+        btnKeranjang = view.findViewById(R.id.btn_keranjang)
         tvNamaProfil = view.findViewById(R.id.tv_nama_profil)
         tvEmailProfil = view.findViewById(R.id.tv_email_profil)
         tvTelponProfil = view.findViewById(R.id.tv_telpon_profil)

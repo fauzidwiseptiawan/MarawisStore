@@ -228,6 +228,7 @@
                     android:padding="20dp">
 
                     <RelativeLayout
+                        android:id="@+id/btn_riwayat"
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:layout_marginLeft="10dp"
@@ -268,7 +269,7 @@
                     <RelativeLayout
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
-                        android:id="@+id/keranjang"
+                        android:id="@+id/btn_keranjang"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="15dp"
                         android:gravity="center_vertical"
@@ -307,7 +308,7 @@
                     <RelativeLayout
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
-                        android:id="@+id/wishList"
+                        android:id="@+id/btn_wishList"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="15dp"
                         android:gravity="center_vertical"

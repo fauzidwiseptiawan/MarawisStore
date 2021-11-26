@@ -15,13 +15,15 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.marawisstore.MainActivity
 import com.example.marawisstore.R
-import com.example.marawisstore.activity.AllProdukLainActivity
-import com.example.marawisstore.activity.FavoritProdukActivity
-import com.example.marawisstore.activity.PengirimanActivity
-import com.example.marawisstore.activity.PengirimanBeliActivity
+import com.example.marawisstore.activity.*
 import com.example.marawisstore.adapter.AdapterKeranjang
+import com.example.marawisstore.helper.SharedPref
 import com.example.marawisstore.model.Produk
 import com.example.marawisstore.room.MyDatabase
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_pengiriman.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_keranjang.*
@@ -30,12 +32,15 @@ import kotlinx.android.synthetic.main.toolbar_costume.*
 class KeranjangFragment : Fragment() {
 
     lateinit var myDb: MyDatabase
+    lateinit var s: SharedPref
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_keranjang,container,false)
 
         myDb = MyDatabase.getInstance(requireActivity())!!
+        s = SharedPref(requireActivity())
+
         init(view)
         mainButton()
         refreshApp()
@@ -121,14 +126,33 @@ class KeranjangFragment : Fragment() {
 
     private fun mainButton(){
         btnBayar.setOnClickListener {
-            val intent = Intent(activity,PengirimanActivity::class.java)
-            intent.putExtra("extraa","" + totalBerat)
-            intent.putExtra("extra","" + totalHarga)
-            startActivity(intent)
+
+            if (s.getStatusLogin()){
+                var isThereProduk = false
+
+                for (p in listProduk){
+                    if (p.selected) isThereProduk = true
+                }
+
+                if (isThereProduk){
+                    val intent = Intent(activity,PengirimanActivity::class.java)
+                    intent.putExtra("extraa","" + totalBerat)
+                    intent.putExtra("extra","" + totalHarga)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(requireContext(),"Tidak ada produk yang terpilih", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                startActivity(Intent(requireActivity(), MasukActivity::class.java))
+            }
         }
 
         btnDelete.setOnClickListener {
-
+            val lisDelete = ArrayList<Produk>()
+            for (p in listProduk){
+                if (p.selected) lisDelete.add(p)
+            }
+            delete(lisDelete)
         }
 
         btnBelanja.setOnClickListener {
@@ -146,6 +170,16 @@ class KeranjangFragment : Fragment() {
         }
     }
 
+    private fun delete(data: ArrayList<Produk>){
+        CompositeDisposable().add(Observable.fromCallable { myDb.daoKeranjang().delete(data) }
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    listProduk.clear()
+                    listProduk.addAll(myDb.daoKeranjang().getAll() as ArrayList)
+                    adapter.notifyDataSetChanged()
+                })
+    }
 
     lateinit var btnDelete: ImageView
     lateinit var rvProduk: RecyclerView

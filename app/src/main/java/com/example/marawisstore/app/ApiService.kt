@@ -1,5 +1,6 @@
 package com.example.marawisstore.app
 
+import com.example.marawisstore.model.Checkout
 import com.example.marawisstore.model.ResponModel
 import com.example.marawisstore.model.rajaongkir.ResponOngkir
 import retrofit2.Call
@@ -23,6 +24,11 @@ interface ApiService {
             @Field("password") password: String
     ):Call<ResponModel>
 
+    @POST("checkout")
+    fun checkout(
+            @Body data: Checkout
+    ):Call<ResponModel>
+
     @GET("product/terkait")
     fun getProductTerkait():Call<ResponModel>
 
@@ -37,6 +43,11 @@ interface ApiService {
 
     @GET("product/lainnyaAll")
     fun getProductLainnyaAll():Call<ResponModel>
+
+    @GET("checkout/user/{id}")
+    fun getRiwayat(
+            @Path("id") id: String
+    ):Call<ResponModel>
 
     @GET("province")
     fun getProvinsi(

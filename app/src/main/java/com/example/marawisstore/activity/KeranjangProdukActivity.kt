@@ -4,13 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.CheckBox
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.marawisstore.R
-import com.example.marawisstore.adapter.AdapterFavorit
 import com.example.marawisstore.adapter.AdapterKeranjang
 import com.example.marawisstore.helper.Helper
 import com.example.marawisstore.model.Produk
@@ -18,7 +13,6 @@ import com.example.marawisstore.room.MyDatabase
 import kotlinx.android.synthetic.main.activity_keranjang_produk.*
 import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.android.synthetic.main.toolbar_baru.*
-import kotlinx.android.synthetic.main.toolbar_costume.*
 
 class KeranjangProdukActivity : AppCompatActivity() {
 

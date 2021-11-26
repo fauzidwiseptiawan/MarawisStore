@@ -37,6 +37,10 @@
         <activity android:name=".activity.ListAlamatActivity" />
         <activity android:name=".activity.PengirimanActivity"/>
         <activity android:name=".activity.PengirimanBeliActivity" />
+        <activity android:name=".activity.PembayaranActivity" />
+        <activity android:name=".activity.SuccesActivity" />
+        <activity android:name=".activity.RiwayatActivity" />
+        <activity android:name=".activity.DetailTransaksiActivity" />
     </application>
 
 
