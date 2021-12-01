@@ -34,7 +34,7 @@ class PembayaranActivity : AppCompatActivity() {
     fun displayPembayaran(){
         val arrBank = ArrayList<Bank>()
         arrBank.add(Bank("BCA", "989282123", "PT Marawis Almadinah", R.drawable.logo_bca))
-        arrBank.add(Bank("Mandiri", "1002982123", "PT Marawis Almadinah", R.drawable.logo_madiri))
+        arrBank.add(Bank("MANDIRI", "1002982123", "PT Marawis Almadinah", R.drawable.logo_madiri))
         arrBank.add(Bank("BNI", "99822333212", "PT Marawis Almadinah", R.drawable.logo_bni))
 
         val layoutManager = LinearLayoutManager(this)
@@ -52,6 +52,7 @@ class PembayaranActivity : AppCompatActivity() {
         val json = intent.getStringExtra("extra")!!.toString()
         val checkout = Gson().fromJson(json, Checkout::class.java)
         checkout.bank = bank.nama
+        checkout.no_rekening = bank.rekening
 
         ApiConfig.instanceRetrofit.checkout(checkout).enqueue(object : Callback<ResponModel> {
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {

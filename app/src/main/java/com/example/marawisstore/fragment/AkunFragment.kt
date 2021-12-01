@@ -20,6 +20,7 @@ class AkunFragment : Fragment() {
     lateinit var btnLogout:TextView
     lateinit var btnWishList:RelativeLayout
     lateinit var btnRiwayat:RelativeLayout
+    lateinit var btnAlamat:RelativeLayout
     lateinit var btnKeranjang:RelativeLayout
     lateinit var tvNamaProfil:TextView
     lateinit var tvTelponProfil:TextView
@@ -55,6 +56,10 @@ class AkunFragment : Fragment() {
             startActivity(Intent(activity, KeranjangProdukActivity::class.java))
         }
 
+        btnAlamat.setOnClickListener {
+            startActivity(Intent(activity, ListAlamatActivity::class.java))
+        }
+
         btnRiwayat.setOnClickListener {
             startActivity(Intent(activity, RiwayatActivity::class.java))
         }
@@ -78,6 +83,7 @@ class AkunFragment : Fragment() {
     private fun init(view: View) {
         btnLogout = view.findViewById(R.id.btn_prosesLogout)
         btnRiwayat = view.findViewById(R.id.btn_riwayat)
+        btnAlamat = view.findViewById(R.id.btn_alamat)
         btnWishList = view.findViewById(R.id.btn_wishList)
         btnKeranjang = view.findViewById(R.id.btn_keranjang)
         tvNamaProfil = view.findViewById(R.id.tv_nama_profil)

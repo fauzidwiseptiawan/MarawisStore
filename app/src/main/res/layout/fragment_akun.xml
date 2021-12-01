@@ -345,6 +345,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/btn_alamat"
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:layout_marginLeft="10dp"

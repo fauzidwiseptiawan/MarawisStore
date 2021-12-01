@@ -20,8 +20,10 @@ import com.example.marawisstore.model.ResponModel
 import com.example.marawisstore.model.Transaksi
 import com.example.marawisstore.room.MyDatabase
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.activity_detail_transaksi.*
 import kotlinx.android.synthetic.main.activity_pembayaran.*
 import kotlinx.android.synthetic.main.activity_succes.*
+import kotlinx.android.synthetic.main.activity_succes.tv_tgl
 import kotlinx.android.synthetic.main.toolbar_baru.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -81,6 +83,9 @@ class SuccesActivity : AppCompatActivity() {
         tv_nomorRekening.text = bank.rekening
         tv_namaPenerima.text = bank.penerima
         image_bank.setImageResource(bank.image)
+
+        val formatBaru = "dd MMMM yyyy, kk:mm"
+        tv_btsBayar.text = Helper().convertTanggal(transaksi.expired_at, formatBaru)
 
         nominal = Integer.valueOf(transaksi.jumlah_bayar)
         tv_nominal.text = Helper().gantiRupiah(nominal)

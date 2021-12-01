@@ -32,8 +32,8 @@ class DetailTransaksiActivity : AppCompatActivity() {
 
     fun setData(t: Transaksi){
         tv_status.text = t.status
-        tv_kodetrx.text = t.kode_transaksi
-        val formatBaru = "d MMM yyyy, kk:mm"
+        tv_kodetrx.text = t.kode_trx
+        val formatBaru = "dd MMMM yyyy, kk:mm"
         tv_tgl.text = Helper().convertTanggal(t.created_at, formatBaru)
         tv_nama_pelanggan.text = t.nama
         tv_alamat.text = t.alamat

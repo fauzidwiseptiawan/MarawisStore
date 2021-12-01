@@ -43,7 +43,7 @@ class AdapterRiwayat(var data:ArrayList<Transaksi>, var listener: Listeners): Re
         holder.tvHarga.text = Helper().gantiRupiah(a.total_harga)
         holder.tvJumlah.text = a.total_qty + " Items"
         holder.tvStatus.text = a.status
-        val formatBaru = "d MMM yyyy"
+        val formatBaru = "dd MMMM yyyy"
         holder.tvTanggal.text = Helper().convertTanggal(a.created_at, formatBaru)
         holder.layout.setOnClickListener {
             listener.onClicked(a)

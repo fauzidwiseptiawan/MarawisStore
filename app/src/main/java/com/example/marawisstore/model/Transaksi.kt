@@ -2,7 +2,8 @@ package com.example.marawisstore.model
 
 class Transaksi {
 
-    var kode_transaksi = ""
+    var id_trx = ""
+    var kode_trx = ""
     var alamat = ""
     var catatan = ""
     var costumer_id = ""
