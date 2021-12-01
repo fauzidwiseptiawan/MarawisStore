@@ -13,7 +13,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#F8F8F8">
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -26,26 +27,70 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <RelativeLayout
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="3dp"
+                    app:cardElevation="1dp">
 
-                    <TextView
-                        android:id="@+id/tv_status"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Completed"
-                        android:textColor="#8BC34A" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:id="@+id/tv_tgl"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:text="01 Juni 2020, 09:45:00"
-                        android:textColor="@color/colorBlack" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                </RelativeLayout>
+                            <TextView
+                                android:id="@+id/tv_status"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="MENUNGGU"
+                                android:textColor="#8BC34A" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:id="@+id/tv_kodetrx"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="INV/2021/23123/1231"
+                                android:textSize="12dp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tanggal Pesanan"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/tv_tgl"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="100dp"
+                                android:layout_alignParentRight="true"
+                                android:text="18 November 2021, 13:14 WIB"
+                                android:textSize="12dp" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_produk"
@@ -71,32 +116,107 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Informasi Pengiriman"
+                            android:text="Info Pengiriman"
                             android:textColor="@color/colorBlack" />
 
-                        <TextView
-                            android:id="@+id/tv_penerima"
-                            android:layout_width="wrap_content"
+                        <RelativeLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Tisto - 081234566790"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="12dp" />
+                            android:layout_marginTop="10dp">
 
-                        <TextView
-                            android:id="@+id/tv_alamat"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Kurir"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/tv_jumlah"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="100dp"
+                                android:text="JNE - CTR"
+                                android:textSize="12dp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Jalan kenangan nomor 5 Lamongan indonesia"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="12dp" />
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No Resi"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/rv_resi"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="100dp"
+                                android:text="98221231"
+                                android:textSize="12dp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Alamat"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/tv_nama_pelanggan"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="100dp"
+                                android:text="Fauzi Dwi Septiawan"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="12dp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/tv_telpon"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="100dp"
+                                android:text="05718305933"
+                                android:textSize="12dp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/tv_alamat"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="100dp"
+                                android:text="Bogor"
+                                android:textSize="12dp" />
+
+                        </RelativeLayout>
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    app:cardBackgroundColor="@color/colorWhite"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
@@ -112,80 +232,111 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Informasi Pengiriman"
-                            android:textColor="@color/colorPrimary" />
+                            android:text="Rinci Pembayaran"
+                            android:textColor="@color/colorBlack" />
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:orientation="horizontal">
+                            android:layout_marginTop="10dp">
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
+                                android:text="Metode Pembayaran"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/tv_metode"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="150dp"
+                                android:text="BNI Transfer"
+                                android:textSize="12dp" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:background="#CACACA" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:text="Total Belanja"
                                 android:textSize="12dp" />
 
                             <TextView
                                 android:id="@+id/tv_totalBelanja"
-                                android:layout_width="0dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1.5"
-                                android:text="Rp.10.000"
-                                android:textColor="@color/colorBlack"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="150dp"
+                                android:text="Rp 100.000"
                                 android:textSize="12dp" />
 
-                        </LinearLayout>
+                        </RelativeLayout>
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:orientation="horizontal">
+                            android:layout_marginTop="10dp">
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Biaya kirim"
+                                android:text="Total Ongkos Kirim"
                                 android:textSize="12dp" />
 
                             <TextView
                                 android:id="@+id/tv_ongkir"
-                                android:layout_width="0dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1.5"
-                                android:text="Rp.0"
-                                android:textColor="@color/colorBlack"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="150dp"
+                                android:text="Rp 15.000"
                                 android:textSize="12dp" />
 
-                        </LinearLayout>
+                        </RelativeLayout>
 
-                        <LinearLayout
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:background="#CACACA" />
+
+
+                        <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:orientation="horizontal">
+                            android:layout_marginTop="10dp">
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Total"
-                                android:textSize="12dp" />
+                                android:textColor="@color/colorBlack"
+                                android:text="Total Bayar" />
 
                             <TextView
                                 android:id="@+id/tv_total"
-                                android:layout_width="0dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1.5"
-                                android:text="Rp.10.000"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="150dp"
                                 android:textColor="@color/colorBlack"
-                                android:textSize="12dp" />
+                                android:text="Rp 900.000" />
 
-                        </LinearLayout>
+                        </RelativeLayout>
 
                     </LinearLayout>
 

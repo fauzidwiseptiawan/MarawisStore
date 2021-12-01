@@ -21,7 +21,7 @@ class DetailTransaksiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_transaksi)
-        Helper().setToolbar(this, toolbar_baru, "Detail Riwayat")
+        Helper().setToolbar(this, toolbar_baru, "Detail Pesanan")
 
         val json = intent.getStringExtra("transaksi")
         val transaksi = Gson().fromJson(json, Transaksi::class.java)
@@ -32,10 +32,13 @@ class DetailTransaksiActivity : AppCompatActivity() {
 
     fun setData(t: Transaksi){
         tv_status.text = t.status
-        val formatBaru = "d MMM yyyy, kk:mm:ss"
+        tv_kodetrx.text = t.kode_transaksi
+        val formatBaru = "d MMM yyyy, kk:mm"
         tv_tgl.text = Helper().convertTanggal(t.created_at, formatBaru)
-        tv_penerima.text = t.nama + " - " + t.telpon
+        tv_nama_pelanggan.text = t.nama
         tv_alamat.text = t.alamat
+        tv_telpon.text = t.telpon
+        tv_metode.text = t.bank + " Transfer"
         tv_totalBelanja.text = Helper().gantiRupiah(t.total_harga)
         tv_ongkir.text = Helper().gantiRupiah(t.ongkir)
         tv_total.text = Helper().gantiRupiah(t.jumlah_bayar)

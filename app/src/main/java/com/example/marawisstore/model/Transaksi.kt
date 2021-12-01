@@ -13,6 +13,7 @@ class Transaksi {
     var ongkir = ""
     var qty = ""
     var telpon = ""
+    var bank = ""
     var status = ""
     var total_berat = ""
     var total_harga = ""
