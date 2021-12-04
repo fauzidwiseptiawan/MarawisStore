@@ -5,11 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".activity.DetailProdukActivity">
-
      <RelativeLayout
          android:layout_width="match_parent"
          android:layout_height="wrap_content">
-
           <androidx.appcompat.widget.Toolbar
               android:id="@+id/toolbar_baru"
               android:background="@color/colorPrimary"
@@ -19,8 +17,5 @@
               app:contentInsetStartWithNavigation="0dp"
               app:paddingEnd="5dp"
               app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
-
      </RelativeLayout>
-
-
 </com.google.android.material.appbar.AppBarLayout>

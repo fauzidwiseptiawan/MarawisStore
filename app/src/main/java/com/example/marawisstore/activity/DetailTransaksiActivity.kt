@@ -1,5 +1,6 @@
 package com.example.marawisstore.activity
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,7 +12,6 @@ import com.example.marawisstore.model.DetailTransaksi
 import com.example.marawisstore.model.Transaksi
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_detail_transaksi.*
-import kotlinx.android.synthetic.main.item_produk_transaksi.*
 import kotlinx.android.synthetic.main.toolbar_baru.*
 
 class DetailTransaksiActivity : AppCompatActivity() {
@@ -30,6 +30,7 @@ class DetailTransaksiActivity : AppCompatActivity() {
         displayProduk(transaksi.details)
     }
 
+    @SuppressLint("SetTextI18n")
     fun setData(t: Transaksi){
         tv_status.text = t.status
         tv_kodetrx.text = t.kode_trx

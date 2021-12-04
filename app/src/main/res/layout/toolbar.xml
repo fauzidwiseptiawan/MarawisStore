@@ -19,41 +19,36 @@
               app:contentInsetStartWithNavigation="0dp"
               app:paddingEnd="5dp"
               app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
-
           <RelativeLayout
               android:id="@+id/btn_toFavorit"
               android:layout_width="40dp"
               android:layout_height="40dp"
-              android:layout_alignParentRight="true"
+              android:layout_alignParentEnd="true"
               android:layout_centerVertical="true"
-              android:layout_marginRight="10dp">
-
+              android:layout_marginEnd="10dp">
                <ImageView
                    android:layout_width="30dp"
                    android:layout_height="30dp"
                    android:layout_centerInParent="true"
                    app:srcCompat="@drawable/ic_baseline_favorite_baru" />
-
                <RelativeLayout
                    android:layout_width="18dp"
                    android:layout_height="18dp"
-                   android:layout_alignParentRight="true"
+                   android:layout_alignParentEnd="true"
                    android:background="@drawable/bg_bulet"
                    android:visibility="gone">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:maxLength="2"
                         android:text="1"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="12dp" />
-
+                        android:fontFamily="@font/mmedium"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/txtNormal" />
                </RelativeLayout>
-
           </RelativeLayout>
-
      </RelativeLayout>
 
 

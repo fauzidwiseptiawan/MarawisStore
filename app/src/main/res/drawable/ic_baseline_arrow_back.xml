@@ -3,7 +3,7 @@
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24"
-    android:tint="@color/shimmer_bg"
+    android:tint="@color/colorGrey"
     android:autoMirrored="true">
   <path
       android:fillColor="@android:color/white"

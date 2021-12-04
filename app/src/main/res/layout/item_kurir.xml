@@ -6,32 +6,30 @@
     android:layout_height="wrap_content"
     android:background="@color/colorWhite"
     android:orientation="vertical">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="10dp">
-
         <RadioButton
             android:id="@+id/rd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false" />
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:orientation="vertical">
-
             <TextView
                 android:id="@+id/tv_nama"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="JNE Reguler"
+                android:fontFamily="@font/mlight"
+                android:textStyle="bold"
+                android:textSize="@dimen/txtNormal"
                 android:textColor="@color/colorBlack" />
-
             <TextView
                 android:id="@+id/tv_lamaPengiriman"
                 android:layout_width="wrap_content"
@@ -39,10 +37,10 @@
                 android:layout_marginTop="10dp"
                 android:text="3 Hari kerja"
                 android:textColor="@color/colorBlack"
-                android:textSize="12dp" />
-
+                android:fontFamily="@font/mlight"
+                android:textStyle="bold"
+                android:textSize="@dimen/txtNormal"/>
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,21 +48,19 @@
             android:layout_marginLeft="5dp"
             android:gravity="right"
             android:orientation="vertical">
-
             <TextView
                 android:id="@+id/tv_harga"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Rp 9.000"
-                android:textColor="@color/colorBlack" />
-
+                android:textColor="@color/colorBlack"
+                android:fontFamily="@font/mmedium"
+                android:textStyle="bold"
+                android:textSize="@dimen/txtNormal"/>
         </LinearLayout>
-
     </LinearLayout>
-
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#EAEAEA" />
-
 </LinearLayout>

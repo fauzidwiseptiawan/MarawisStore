@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Metode Pembayaran"
-            android:textColor="@color/colorBlue"
+            android:textColor="@color/colorBlack"
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text="Informasi belanja"
-            android:textColor="@color/colorBlue"
+            android:textColor="@color/colorBlack"
             android:textStyle="bold" />
 
     </LinearLayout>

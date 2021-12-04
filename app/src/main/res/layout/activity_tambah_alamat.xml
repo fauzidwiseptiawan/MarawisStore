@@ -5,54 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
     <include
         layout="@layout/toolbar_baru"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="15dp"
                 android:padding="5dp"
                 android:orientation="vertical">
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:padding="5dp"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:boxStrokeColor="@color/colorPrimary">
-
                     <EditText
                         android:id="@+id/edt_nama"
-                        android:paddingRight="12dp"
                         android:paddingEnd="12dp"
-                        android:textSize="14sp"
+                        android:textColor="@color/colorBlack"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/mlight"
+                        android:textSize="@dimen/txtNormal"
                         android:drawablePadding="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Nama Lengkap*"
                         android:inputType="text"/>
-
                 </com.google.android.material.textfield.TextInputLayout>
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:padding="5dp"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:boxStrokeColor="@color/colorPrimary">
-
                     <EditText
                         android:id="@+id/edt_telpon"
                         android:layout_width="match_parent"
@@ -60,60 +53,57 @@
                         android:drawablePadding="10dp"
                         android:hint="Nomor telp*"
                         android:maxLength="13"
+                        android:textColor="@color/colorBlack"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/mlight"
+                        android:textSize="@dimen/txtNormal"
                         android:inputType="number"
-                        android:paddingEnd="12dp"
-                        android:paddingRight="12dp"
-                        android:textSize="14sp" />
-
+                        android:paddingEnd="12dp" />
                 </com.google.android.material.textfield.TextInputLayout>
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:padding="5dp"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:boxStrokeColor="@color/colorPrimary">
-
                     <EditText
                         android:id="@+id/edt_alamat"
-                        android:paddingRight="12dp"
                         android:paddingEnd="12dp"
-                        android:textSize="14sp"
+                        android:textColor="@color/colorBlack"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/mlight"
+                        android:textSize="@dimen/txtNormal"
                         android:drawablePadding="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Jalan, No, RT/RW*"
                         android:inputType="text"/>
-
                 </com.google.android.material.textfield.TextInputLayout>
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:padding="5dp"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:boxStrokeColor="@color/colorPrimary">
-
                     <EditText
                         android:id="@+id/edt_type"
-                        android:paddingRight="12dp"
                         android:paddingEnd="12dp"
-                        android:textSize="14sp"
+                        android:textColor="@color/colorBlack"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/mlight"
+                        android:textSize="@dimen/txtNormal"
                         android:drawablePadding="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Rumah/Kos/Kantor*"
                         android:inputType="text"/>
-
                 </com.google.android.material.textfield.TextInputLayout>
-
                 <ProgressBar
                     android:id="@+id/pb"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp" />
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/div_provinsi"
                     android:padding="5dp"
@@ -122,19 +112,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:boxStrokeColor="@color/colorPrimary">
-
                     <AutoCompleteTextView
                         android:id="@+id/spn_provinsi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Pilih Provinsi*"
-                        android:paddingRight="12dp"
                         android:paddingEnd="12dp"
-                        android:textSize="14sp"
+                        android:textColor="@color/colorBlack"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/mlight"
+                        android:textSize="@dimen/txtNormal"
                         android:inputType="none"/>
-
                 </com.google.android.material.textfield.TextInputLayout>
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/div_kota"
                     android:visibility="gone"
@@ -143,40 +132,38 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:boxStrokeColor="@color/colorPrimary">
-
                     <AutoCompleteTextView
                         android:id="@+id/spn_kota"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Kota*"
-                        android:paddingRight="12dp"
                         android:paddingEnd="12dp"
-                        android:textSize="14sp"
+                        android:textColor="@color/colorBlack"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/mlight"
+                        android:textSize="@dimen/txtNormal"
                         android:inputType="none"/>
-
                 </com.google.android.material.textfield.TextInputLayout>
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:padding="5dp"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:boxStrokeColor="@color/colorPrimary">
-
                     <EditText
                         android:id="@+id/edt_kodePos"
-                        android:paddingRight="12dp"
                         android:paddingEnd="12dp"
-                        android:textSize="14sp"
+                        android:textColor="@color/colorBlack"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/mlight"
+                        android:textSize="@dimen/txtNormal"
                         android:maxLength="6"
                         android:drawablePadding="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Kode pos*"
                         android:inputType="number"/>
-
                 </com.google.android.material.textfield.TextInputLayout>
-
                 <Button
                     android:id="@+id/btn_simpan"
                     android:layout_width="match_parent"
@@ -187,20 +174,17 @@
                     android:paddingHorizontal="15dp"
                     android:text="Simpan"
                     android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/mmedium"
+                    android:textSize="@dimen/txtNormal"
                     android:textColor="@color/colorWhite" />
-
-
             </LinearLayout>
-
         </ScrollView>
-
         <ProgressBar
             android:visibility="gone"
             android:id="@+id/pb_register"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_centerInParent="true"/>
-
     </RelativeLayout>
-
 </LinearLayout>

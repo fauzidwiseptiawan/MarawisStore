@@ -25,7 +25,8 @@
                 android:textColor="@color/colorWhite"
                 android:layout_weight="1"
                 android:textAlignment="center"
-                android:textSize="20dp"
+                android:textSize="@dimen/txtHead"
+                android:fontFamily="@font/mmedium"
                 android:textStyle="bold"
                 android:text="Keranjang"
                 android:layout_width="match_parent"
@@ -103,7 +104,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Keranjang Anda Kosong"
-                android:textSize="18dp"
+                android:textSize="@dimen/txtNormal"
+                android:fontFamily="@font/mmedium"
                 android:textStyle="bold"/>
 
             <TextView
@@ -112,7 +114,8 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:text="Dapatkan penawaran spesial dari kami untuk hari ini"
-                android:textSize="14dp"/>
+                android:textSize="@dimen/txtNormal"
+                android:fontFamily="@font/mlight"/>
 
             <RelativeLayout
                 android:clickable="true"
@@ -128,8 +131,9 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="Mulai Belanja"
+                    android:fontFamily="@font/mmedium"
                     android:textColor="@color/colorWhite"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/txtNormal"
                     android:textStyle="bold" />
 
             </RelativeLayout>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,13 +10,11 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:background="@drawable/header"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
         <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
@@ -35,27 +34,27 @@
 
             <TextView
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/mmedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="@dimen/txtTitle"
                 android:gravity="center"
                 android:text="PROFILE"
-                android:textColor="@color/colorBlue"/>
-
-
+                android:textColor="@color/colorWhite"/>
             <de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
                 android:src="@drawable/blank"
                 app:civ_border_width="2dp"
-                app:civ_border_color="#FF000000"/>
-
+                app:civ_border_color="@color/colorPrimary"/>
             <TextView
                 android:id="@+id/tv_nama_profil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textSize="@dimen/txtNormal"
+                android:fontFamily="@font/mlight"
                 android:textColor="@color/colorWhite"
                 android:layout_marginTop="20dp"
                 android:text="Nama User"/>
@@ -67,6 +66,8 @@
                 android:gravity="center"
                 android:textColor="@color/colorWhite"
                 android:layout_marginTop="2dp"
+                android:fontFamily="@font/mlight"
+                android:textSize="@dimen/txtNormal"
                 android:text="Nomor Telepon"/>
 
             <TextView
@@ -74,6 +75,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:fontFamily="@font/mlight"
+                android:textSize="@dimen/txtNormal"
                 android:textColor="@color/colorWhite"
                 android:layout_marginTop="2dp"
                 android:text="Email"/>
@@ -120,7 +123,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Ubah Profil"
-                            android:textColor="@color/colorBlue"/>
+                            android:fontFamily="@font/mlight"
+                            android:textSize="@dimen/txtNormal"
+                            android:textColor="@color/colorBlack"/>
 
                     </LinearLayout>
 
@@ -157,8 +162,10 @@
                                 android:layout_marginLeft="10dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/mlight"
+                                android:textSize="@dimen/txtNormal"
                                 android:text="Ubah Password"
-                                android:textColor="@color/colorBlue"/>
+                                android:textColor="@color/colorBlack"/>
 
                         </LinearLayout>
 
@@ -195,15 +202,18 @@
                                 android:layout_marginLeft="10dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/mlight"
+                                android:textSize="@dimen/txtNormal"
                                 android:text="Notifikasi"
-                                android:textColor="@color/colorBlue"/>
+                                android:textColor="@color/colorBlack"/>
 
                         </LinearLayout>
                         
                         <Switch
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"/>
+                            android:layout_alignParentRight="true"
+                            tools:ignore="UseSwitchCompatOrMaterialXml" />
 
                     </RelativeLayout>
 
@@ -236,7 +246,8 @@
                         android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:focusable="true">
 
                         <LinearLayout
                             android:gravity="center_vertical"
@@ -253,8 +264,10 @@
                                 android:layout_marginLeft="10dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/mlight"
+                                android:textSize="@dimen/txtNormal"
                                 android:text="Riwayat Belanja"
-                                android:textColor="@color/colorBlue"/>
+                                android:textColor="@color/colorBlack"/>
 
                         </LinearLayout>
 
@@ -291,9 +304,11 @@
                             <TextView
                                 android:layout_marginLeft="10dp"
                                 android:layout_width="wrap_content"
+                                android:fontFamily="@font/mlight"
+                                android:textSize="@dimen/txtNormal"
                                 android:layout_height="wrap_content"
                                 android:text="Daftar Keranjang"
-                                android:textColor="@color/colorBlue"/>
+                                android:textColor="@color/colorBlack"/>
 
                         </LinearLayout>
 
@@ -331,8 +346,10 @@
                                 android:layout_marginLeft="10dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/mlight"
+                                android:textSize="@dimen/txtNormal"
                                 android:text="Wishlist"
-                                android:textColor="@color/colorBlue"/>
+                                android:textColor="@color/colorBlack"/>
 
                         </LinearLayout>
 
@@ -369,9 +386,11 @@
                             <TextView
                                 android:layout_marginLeft="10dp"
                                 android:layout_width="wrap_content"
+                                android:fontFamily="@font/mlight"
+                                android:textSize="@dimen/txtNormal"
                                 android:layout_height="wrap_content"
                                 android:text="Pengaturan Alamat"
-                                android:textColor="@color/colorBlue"/>
+                                android:textColor="@color/colorBlack"/>
 
                         </LinearLayout>
 
@@ -428,8 +447,10 @@
                                 android:layout_marginLeft="10dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/mlight"
+                                android:textSize="@dimen/txtNormal"
                                 android:text="Tentang Kami"
-                                android:textColor="@color/colorBlue"/>
+                                android:textColor="@color/colorBlack"/>
 
                         </LinearLayout>
 
@@ -465,9 +486,11 @@
                             <TextView
                                 android:layout_marginLeft="10dp"
                                 android:layout_width="wrap_content"
+                                android:fontFamily="@font/mlight"
+                                android:textSize="@dimen/txtNormal"
                                 android:layout_height="wrap_content"
                                 android:text="Bantuan"
-                                android:textColor="@color/colorBlue"/>
+                                android:textColor="@color/colorBlack"/>
 
                         </LinearLayout>
 
@@ -489,18 +512,21 @@
                 android:textStyle="bold"
                 android:id="@+id/btn_prosesLogout"
                 android:layout_marginTop="25dp"
-                android:textColor="@color/colorBlue"
+                android:textColor="@color/colorBlack"
+                android:fontFamily="@font/mmedium"
+                android:textSize="@dimen/txtTitle"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Log Out"/>
 
             <TextView
-                android:textSize="12dp"
+                android:textSize="@dimen/txtNormal"
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/colorBlue"
+                android:textColor="@color/colorBlack"
                 android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/mlight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Verison 1.0.0"/>
