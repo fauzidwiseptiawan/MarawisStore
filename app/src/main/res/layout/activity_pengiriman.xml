@@ -34,7 +34,7 @@
                     android:textStyle="bold"
                     android:fontFamily="@font/mlight"
                     android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/txtNormal"
+                    android:textSize="@dimen/txtSmall"
                     android:text="Pengiriman" />
                 <View
                     android:layout_width="match_parent"
@@ -58,7 +58,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
                     android:fontFamily="@font/mlight"
-                    android:textSize="@dimen/txtNormal"
+                    android:textSize="@dimen/txtSmall"
                     android:text="Metode Pembayaran" />
                 <View
                     android:layout_width="match_parent"
@@ -84,7 +84,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
                     android:fontFamily="@font/mlight"
-                    android:textSize="@dimen/txtNormal"
+                    android:textSize="@dimen/txtSmall"
                     android:text="Selesai" />
             </RelativeLayout>
             <LinearLayout
@@ -209,7 +209,7 @@
                         android:layout_centerInParent="true"
                         android:text="Tambah Alamat"
                         android:textStyle="bold"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/colorPrimary"
                         android:fontFamily="@font/mlight"
                         android:textSize="@dimen/txtNormal"/>
                 </RelativeLayout>

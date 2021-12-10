@@ -32,7 +32,7 @@
                     android:layout_below="@+id/img1"
                     android:textStyle="bold"
                     android:fontFamily="@font/mlight"
-                    android:textSize="@dimen/txtNormal"
+                    android:textSize="@dimen/txtSmall"
                     android:textColor="@color/colorBlack"
                     android:layout_marginStart="10dp"
                     android:text="Pengiriman" />
@@ -56,7 +56,7 @@
                     android:layout_below="@+id/img2"
                     android:textStyle="bold"
                     android:fontFamily="@font/mlight"
-                    android:textSize="@dimen/txtNormal"
+                    android:textSize="@dimen/txtSmall"
                     android:textColor="@color/colorBlack"
                     android:layout_centerHorizontal="true"
                     android:text="Metode Pembayaran" />
@@ -81,7 +81,7 @@
                     android:layout_below="@+id/img3"
                     android:textStyle="bold"
                     android:fontFamily="@font/mlight"
-                    android:textSize="@dimen/txtNormal"
+                    android:textSize="@dimen/txtSmall"
                     android:textColor="@color/colorBlack"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="22dp"
@@ -184,7 +184,7 @@
                         android:textStyle="bold"
                         android:fontFamily="@font/mlight"
                         android:textSize="@dimen/txtNormal"
-                        android:textColor="@color/colorBlack"/>
+                        android:textColor="@color/colorPrimary"/>
                 </RelativeLayout>
             </LinearLayout>
             <LinearLayout

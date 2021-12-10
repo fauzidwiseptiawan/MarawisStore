@@ -22,6 +22,8 @@
             android:layout_height="wrap_content"
             android:text="Metode Pembayaran"
             android:textColor="@color/colorBlack"
+            android:fontFamily="@font/mmedium"
+            android:textSize="@dimen/txtNormal"
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -30,13 +32,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Informasi belanja"
-            android:textColor="@color/colorBlack"
-            android:textStyle="bold" />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:text="Informasi belanja"-->
+<!--            android:textColor="@color/colorBlack"-->
+<!--            android:fontFamily="@font/mmedium"-->
+<!--            android:textSize="@dimen/txtNormal"-->
+<!--            android:textStyle="bold" />-->
 
     </LinearLayout>
 

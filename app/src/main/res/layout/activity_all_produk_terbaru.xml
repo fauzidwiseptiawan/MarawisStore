@@ -6,16 +6,13 @@
     android:layout_height="match_parent"
     android:background="#F8F8F8"
     android:orientation="vertical">
-
     <include
         layout="@layout/toolbar_costume"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_all_produk_baru"
         android:layout_width="match_parent"
         android:padding="5dp"
         android:layout_height="wrap_content" />
-
 </LinearLayout>

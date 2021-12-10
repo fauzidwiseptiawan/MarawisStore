@@ -271,6 +271,7 @@
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:id="@+id/btn_favorit"
+                android:layout_weight="0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_btn_keranjang"
@@ -285,10 +286,13 @@
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:id="@+id/btn_keranjang"
-                android:layout_width="135dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/bg_btn_keranjang2">
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/bg_btn_keranjang2"
+                android:focusable="true">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -303,10 +307,11 @@
                 android:id="@+id/btn_beli"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:layout_width="135dp"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-                android:background="@drawable/bg_btn_beli">
+                android:background="@drawable/bg_btn_beli"
+                android:focusable="true">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -6,43 +6,37 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
         android:orientation="horizontal"
         android:background="@color/colorWhite">
-
         <ImageView
             android:id="@+id/btn_back"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
             android:layout_gravity="center"
             android:layout_width="30dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_baseline_arrow_back"/>
-
+            android:src="@drawable/ic_baseline_arrow_back"
+            android:focusable="true" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:textStyle="bold"
-            android:fontFamily="@font/mmedium"
+            android:fontFamily="@font/mlight"
             android:layout_marginEnd="30dp"
             android:textColor="@color/colorBlack"
             android:text="Login"
-            android:textSize="15sp"/>
-
-
+            android:textSize="@dimen/txtTitle"/>
     </LinearLayout>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -50,7 +44,6 @@
                 android:paddingHorizontal="15dp"
                 android:padding="10dp"
                 android:orientation="vertical">
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:padding="5dp"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -58,21 +51,20 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
                     app:boxStrokeColor="@color/colorPrimary">
-
                     <EditText
                         android:paddingRight="12dp"
                         android:paddingEnd="12dp"
-                        android:textSize="13sp"
+                        android:textSize="@dimen/txtNormal"
                         android:fontFamily="@font/mlight"
+                        android:textColor="@color/colorBlack"
                         android:drawablePadding="10dp"
                         android:id="@+id/edt_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Email"
+                        android:textStyle="bold"
                         android:inputType="textEmailAddress"/>
-
                 </com.google.android.material.textfield.TextInputLayout>
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:padding="5dp"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -81,11 +73,12 @@
                     android:layout_margin="1dp"
                     app:passwordToggleEnabled="true"
                     app:boxStrokeColor="@color/colorPrimary">
-
                     <EditText
                         android:paddingRight="12dp"
                         android:paddingEnd="12dp"
-                        android:textSize="13sp"
+                        android:textSize="@dimen/txtNormal"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorBlack"
                         android:fontFamily="@font/mlight"
                         android:drawablePadding="10dp"
                         android:id="@+id/edt_password"
@@ -93,9 +86,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Password"
                         android:inputType="textPassword"/>
-
                 </com.google.android.material.textfield.TextInputLayout>
-
                 <RelativeLayout
                     android:layout_marginTop="10dp"
                     android:clickable="true"
@@ -104,7 +95,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:background="@drawable/bg_btn_beli">
-
                     <TextView
                         android:fontFamily="@font/mmedium"
                         android:layout_width="wrap_content"
@@ -112,49 +102,41 @@
                         android:layout_centerInParent="true"
                         android:text="Masuk"
                         android:textColor="@color/colorWhite"
-                        android:textSize="15dp"
+                        android:textSize="@dimen/txtNormal"
                         android:textStyle="bold" />
-
                 </RelativeLayout>
-
                 <LinearLayout
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="horizontal">
-
                     <View
                         android:layout_width="0dp"
                         android:layout_height="1dp"
                         android:layout_weight="1"
-                        android:background="#CACACA" />
-
+                        android:background="@color/colorPremium" />
                     <TextView
                         android:layout_marginHorizontal="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/mlight"
-                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/txtNormal"
                         android:text="Lupa Password ?"/>
-
                     <View
                         android:layout_width="0dp"
                         android:layout_height="1dp"
                         android:layout_weight="1"
-                        android:background="#CACACA" />
-
+                        android:background="@color/colorPremium" />
                 </LinearLayout>
-
             </LinearLayout>
-
         <ProgressBar
             android:visibility="gone"
             android:id="@+id/pb_login"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_centerInParent="true"/>
-
     </RelativeLayout>
-
 </LinearLayout>

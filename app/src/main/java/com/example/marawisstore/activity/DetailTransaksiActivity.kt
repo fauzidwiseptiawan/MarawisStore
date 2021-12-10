@@ -3,6 +3,7 @@ package com.example.marawisstore.activity
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.marawisstore.R
 import com.example.marawisstore.adapter.AdapterProdukTransaksi
@@ -38,6 +39,13 @@ class DetailTransaksiActivity : AppCompatActivity() {
         tv_tgl.text = Helper().convertTanggal(t.created_at, formatBaru)
         tv_nama_pelanggan.text = t.nama
         tv_alamat.text = t.alamat
+        tv_kurir.text = t.kurir + " - " + t.layanan
+        if (t.resi != ""){
+            tv_resi.visibility = View.VISIBLE
+            tv_resi.text = t.resi
+        }
+        tv_resiKosong.visibility = View.VISIBLE
+        tv_resiKosong.text ="Resi belum di input"
         tv_telpon.text = t.telpon
         tv_metode.text = t.bank + " Transfer"
         tv_totalBelanja.text = Helper().gantiRupiah(t.total_harga)

@@ -3,4 +3,5 @@
     <dimen name="txtHead">25sp</dimen>
     <dimen name="txtTitle">20sp</dimen>
     <dimen name="txtNormal">15sp</dimen>
+    <dimen name="txtSmall">13sp</dimen>
 </resources>

@@ -6,12 +6,10 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:orientation="vertical">
-
     <androidx.appcompat.widget.Toolbar
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <LinearLayout
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="15dp"
@@ -19,7 +17,6 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <TextView
                 android:layout_gravity="center"
                 android:textColor="@color/colorWhite"
@@ -31,7 +28,6 @@
                 android:text="Keranjang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-
             <ImageView
                 android:visibility="gone"
                 android:id="@+id/btn_delete"
@@ -40,155 +36,137 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 app:srcCompat="@drawable/ic_delete" />
-
         </LinearLayout>
-
     </androidx.appcompat.widget.Toolbar>
-
     <RelativeLayout
         android:id="@+id/div_header"
         android:visibility="gone"
         android:background="@color/colorWhite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <CheckBox
             android:id="@+id/cb_all"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/txtNormal"
+            android:fontFamily="@font/mlight"
+            android:textStyle="bold"
             android:text="Select All" />
-
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="70dp"
             android:background="#ECECEC" />
-
     </RelativeLayout>
-
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeToRefresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-    <RelativeLayout
-        android:background="#F8F8F8"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:visibility="gone"
-            android:id="@+id/rv_produk"
-            android:layout_above="@+id/div_footer"
+        <RelativeLayout
+            android:background="#F8F8F8"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="15dp" />
-
-
-        <LinearLayout
-            android:id="@+id/empty_keranjang"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_marginTop="20dp"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:src="@drawable/keranjang_kosong"/>
-
-            <TextView
-                android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="gone"
+                android:id="@+id/rv_produk"
+                android:layout_above="@+id/div_footer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="15dp" />
+            <LinearLayout
+                android:id="@+id/empty_keranjang"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Keranjang Anda Kosong"
-                android:textSize="@dimen/txtNormal"
-                android:fontFamily="@font/mmedium"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:padding="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="Dapatkan penawaran spesial dari kami untuk hari ini"
-                android:textSize="@dimen/txtNormal"
-                android:fontFamily="@font/mlight"/>
-
-            <RelativeLayout
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:id="@+id/btn_belanja"
-                android:layout_width="170dp"
-                android:layout_marginTop="20dp"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_btn_beli">
-
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:src="@drawable/keranjang_kosong"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="Mulai Belanja"
+                    android:layout_marginTop="20dp"
+                    android:text="Keranjang Anda Kosong"
+                    android:textSize="@dimen/txtNormal"
                     android:fontFamily="@font/mmedium"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="Dapatkan penawaran spesial dari kami untuk hari ini"
+                    android:textSize="@dimen/txtNormal"
+                    android:fontFamily="@font/mlight"/>
+                <RelativeLayout
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:id="@+id/btn_belanja"
+                    android:layout_width="150dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_btn_beli">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Mulai Belanja"
+                        android:fontFamily="@font/mmedium"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/txtNormal"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/div_footer"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/txtNormal"
+                        android:fontFamily="@font/mlight"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/tv_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp.0"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/txtNormal"
+                        android:fontFamily="@font/mmedium"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/btn_bayar"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/bg_btn_beli"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Bayar"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/txtNormal"
+                    android:fontFamily="@font/mlight"
                     android:textStyle="bold" />
-
             </RelativeLayout>
-
-        </LinearLayout>
-
-        <RelativeLayout
-            android:id="@+id/div_footer"
-            android:visibility="gone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="@color/colorWhite"
-            android:orientation="horizontal"
-            android:paddingHorizontal="15dp"
-            android:paddingVertical="10dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Total" />
-
-                <TextView
-                    android:id="@+id/tv_total"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="Rp.0"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16dp" />
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/btn_bayar"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/bg_btn_beli"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="Bayar"
-                android:textColor="@color/colorWhite"
-                android:textSize="12dp"
-                android:textStyle="bold" />
-
         </RelativeLayout>
-
-    </RelativeLayout>
-
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
 </LinearLayout>

@@ -11,6 +11,12 @@
     <color name="colorPrimaryVariant">@color/color_600</color>
     <color name="colorOnPrimary">@color/color_700</color>
 
+    <!-- Color Status -->
+    <color name="colorPending">#ffff00</color>
+    <color name="colorVerifikasi">#0000ff</color>
+    <color name="colorBatal">#ff0000</color>
+    <color name="colorSelesai">#4CAF50</color>
+
     <!-- Tanggal Color -->
     <color name="color_500">#fc9902</color>
     <color name="color_600">#f88d01</color>

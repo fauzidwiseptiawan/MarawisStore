@@ -12,6 +12,7 @@ class Transaksi {
     var layanan = ""
     var nama = ""
     var ongkir = ""
+    var resi = ""
     var qty = ""
     var telpon = ""
     var bank = ""

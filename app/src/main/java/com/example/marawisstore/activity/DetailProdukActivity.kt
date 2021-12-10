@@ -169,7 +169,7 @@ class DetailProdukActivity : AppCompatActivity() {
         val data = intent.getStringExtra("extra")
         produk = Gson().fromJson<Produk>(data, Produk::class.java)
 
-//        if (produk.diskon != 0){
+//        if (produk.diskon == null){
 //            tv_diskon_P.visibility = View.VISIBLE
 //            tv_diskon_P.text = Helper().gantiRupiah(produk.diskon)
 //            tv_diskon_P.paintFlags = tv_diskon_P.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG

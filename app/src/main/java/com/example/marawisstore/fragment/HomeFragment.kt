@@ -41,7 +41,6 @@ class HomeFragment : Fragment() {
     lateinit var tvProdukLain: TextView
     lateinit var swRefresh: SwipeRefreshLayout
     lateinit var btnFavorit: Button
-
     lateinit var myDbFav: MyDatabaseFavorit
 
     override fun onCreateView(
@@ -72,19 +71,15 @@ class HomeFragment : Fragment() {
         btnFavorit.setOnClickListener {
             startActivity(Intent(activity, FavoritProdukActivity::class.java))
         }
-
         tvProdukTerbaru.setOnClickListener {
             startActivity(Intent(activity, AllProdukTerbaruActivity::class.java))
         }
-
         tvProdukLain.setOnClickListener {
             startActivity(Intent(activity, AllProdukLainActivity::class.java))
         }
     }
 
-
     fun displayProduk() {
-
         val arrSlider = ArrayList<Int> ()
         arrSlider.add(R.drawable.banner_test)
         arrSlider.add(R.drawable.banner_test)

@@ -6,14 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
     <!--Navigation Bar-->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarHome"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <LinearLayout
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="15dp"
@@ -21,7 +19,6 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <TextView
                 android:layout_gravity="center"
                 android:textColor="@color/colorWhite"
@@ -30,14 +27,12 @@
                 android:textSize="@dimen/txtHead"
                 android:textStyle="bold"
                 android:text="Marawis Store"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"/>
-
             <androidx.cardview.widget.CardView
                 app:cardCornerRadius="10dp"
                 android:layout_width="36dp"
                 android:layout_height="36dp">
-
                 <Button
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
@@ -45,24 +40,19 @@
                     android:layout_gravity="center"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/ic_favorite"/>
-
+                    android:background="@drawable/ic_favorite"
+                    android:focusable="true" />
             </androidx.cardview.widget.CardView>
-
         </LinearLayout>
-
     </androidx.appcompat.widget.Toolbar>
-
     <!--Header-->
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeToRefresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <LinearLayout
                 android:orientation="vertical"
                 android:background="#F8F8F8"
@@ -84,71 +74,71 @@
                         android:layout_height="130dp"/>
                 </LinearLayout>
                 <!--Produk Lainnya-->
+                <LinearLayout
+                    android:background="@drawable/background_lainnya"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!--Title Swip-->
+                    <LinearLayout
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textColor="@color/colorBlack"
+                            android:layout_weight="1"
+                            android:layout_marginTop="15dp"
+                            android:textSize="@dimen/txtTitle"
+                            android:fontFamily="@font/mmedium"
+                            android:textStyle="bold"
+                            android:text="Produk Terbaru"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:padding="10dp"
+                            android:clickable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:id="@+id/tv_ProdukTerbaru"
+                            android:layout_marginTop="15dp"
+                            android:textStyle="bold"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorBlack"
+                            android:fontFamily="@font/mlight"
+                            android:textSize="@dimen/txtNormal"
+                            android:text="Lihat Semua"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
                         <LinearLayout
-                            android:background="@drawable/background_lainnya"
-                            android:orientation="vertical"
+                            android:orientation="horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-                            <!--Title Swip-->
-                                <LinearLayout
-                                    android:layout_marginLeft="15dp"
-                                    android:layout_marginRight="15dp"
-                                    android:orientation="horizontal"
+                            <!--Card Produk Lainnya-->
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_marginBottom="15dp"
+                                android:layout_height="wrap_content">
+                                <ProgressBar
+                                    android:id="@+id/pb"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="10dp" />
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:layout_marginTop="5dp"
+                                    android:id="@+id/rv_produk"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
-                                        <TextView
-                                            android:textColor="@color/colorBlack"
-                                            android:layout_weight="1"
-                                            android:layout_marginTop="15dp"
-                                            android:textSize="@dimen/txtTitle"
-                                            android:fontFamily="@font/mmedium"
-                                            android:textStyle="bold"
-                                            android:text="Produk Terbaru"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"/>
-                                        <TextView
-                                            android:padding="10dp"
-                                            android:clickable="true"
-                                            android:foreground="?android:attr/selectableItemBackground"
-                                            android:id="@+id/tv_ProdukTerbaru"
-                                            android:layout_marginTop="15dp"
-                                            android:textStyle="bold"
-                                            android:textAllCaps="false"
-                                            android:textColor="@color/colorBlack"
-                                            android:fontFamily="@font/mlight"
-                                            android:textSize="@dimen/txtNormal"
-                                            android:text="Lihat Semua"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"/>
-                                    </LinearLayout>
-                                    <ScrollView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content">
-                                        <LinearLayout
-                                            android:orientation="horizontal"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content">
-                                            <!--Card Produk Lainnya-->
-                                            <LinearLayout
-                                                android:orientation="vertical"
-                                                android:layout_width="match_parent"
-                                                android:layout_marginBottom="15dp"
-                                                android:layout_height="wrap_content">
-                                                <ProgressBar
-                                                    android:id="@+id/pb"
-                                                    android:layout_width="30dp"
-                                                    android:layout_height="30dp"
-                                                    android:layout_gravity="center_horizontal"
-                                                    android:layout_marginTop="10dp" />
-                                                <androidx.recyclerview.widget.RecyclerView
-                                                    android:layout_marginTop="5dp"
-                                                    android:id="@+id/rv_produk"
-                                                    android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content" />
-                                            </LinearLayout>
-                                        </LinearLayout>
-                                    </ScrollView>
-                                </LinearLayout>
+                                    android:layout_height="wrap_content" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </ScrollView>
+                </LinearLayout>
                 <!--Produk Terbaru-->
                 <LinearLayout
                     android:paddingBottom="15dp"
@@ -157,7 +147,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <!--Title Swip-->
-
                     <LinearLayout
                         android:layout_marginBottom="5dp"
                         android:layout_marginLeft="15dp"
@@ -190,32 +179,27 @@
                             android:text="Lihat Semua"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
-
                     </LinearLayout>
-                            <!--Card Produk-->
-                            <LinearLayout
-                                android:layout_marginTop="5dp"
-                                android:orientation="vertical"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
-                                <ProgressBar
-                                    android:id="@+id/pbProduk"
-                                    android:layout_width="30dp"
-                                    android:background="@color/colorWhite"
-                                    android:layout_height="30dp"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginTop="10dp" />
-                                <androidx.recyclerview.widget.RecyclerView
-                                    android:id="@+id/rv_produk_lainnya"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content" />
-
-                            </LinearLayout>
+                    <!--Card Produk-->
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ProgressBar
+                            android:id="@+id/pbProduk"
+                            android:layout_width="30dp"
+                            android:background="@color/colorWhite"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp" />
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_produk_lainnya"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-
         </ScrollView>
-
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
 </LinearLayout>

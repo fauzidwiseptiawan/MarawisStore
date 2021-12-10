@@ -9,46 +9,42 @@
     android:layout_marginBottom="5dp"
     app:cardCornerRadius="4dp"
     app:cardElevation="1dp">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="10dp"
             android:paddingVertical="15dp">
-
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical">
-
                 <TextView
                     android:id="@+id/tv_nama"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="marquee"
                     android:text="Nama"
-                    android:textSize="15dp"
+                    android:textSize="@dimen/txtNormal"
+                    android:fontFamily="@font/mmedium"
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold" />
-
                 <TextView
                     android:id="@+id/tv_tgl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:text="6 jun 2020"
+                    android:textSize="@dimen/txtNormal"
+                    android:fontFamily="@font/mlight"
                     android:textColor="@color/colorBlack"
-                    android:textSize="13dp" />
-
+                    android:textStyle="bold" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -56,59 +52,54 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:orientation="vertical">
-
                 <TextView
                     android:id="@+id/tv_harga"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ellipsize="marquee"
                     android:text="Rp.10.000"
-                    android:textSize="15dp"
+                    android:textSize="@dimen/txtNormal"
+                    android:fontFamily="@font/mmedium"
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold" />
-
                 <TextView
                     android:id="@+id/tv_jumlah"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:text="3 item"
+                    android:textSize="@dimen/txtNormal"
+                    android:fontFamily="@font/mlight"
                     android:textColor="@color/colorBlack"
-                    android:textSize="13dp" />
-
+                    android:textStyle="bold"/>
             </LinearLayout>
-
         </LinearLayout>
-
         <View
             android:layout_width="wrap_content"
             android:layout_height="1dp"
-            android:background="#E3E3E3" />
-
+            android:background="@color/colorPremium" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="10dp"
             android:paddingVertical="15dp">
-
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical">
-
                 <TextView
                     android:id="@+id/tv_status"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="marquee"
                     android:text="Completed"
-                    android:textSize="13dp"
-                    android:textColor="#4CAF50" />
-
+                    android:fontFamily="@font/mmedium"
+                    android:textSize="@dimen/txtNormal"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorSelesai" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -116,19 +107,16 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:orientation="vertical">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ellipsize="marquee"
                     android:text="Details"
-                    android:textSize="13dp"
-                    android:textColor="#2196F3"/>
-
+                    android:fontFamily="@font/mmedium"
+                    android:textSize="@dimen/txtNormal"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"/>
             </LinearLayout>
-
         </LinearLayout>
-
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>

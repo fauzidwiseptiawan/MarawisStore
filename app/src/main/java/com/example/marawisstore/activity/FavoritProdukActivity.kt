@@ -56,12 +56,11 @@ class FavoritProdukActivity : AppCompatActivity() {
     }
 
     private fun emptyFavorit(){
-        val listProduks = myDb.daoKeranjang().getAll() as ArrayList
+        val listProduks = myDbFav.daoFavorit().getAllFav() as ArrayList
 
-        if (listProduks.isEmpty()){
+        if (listProduks.isNotEmpty()){
             empty_favorit.visibility = View.GONE
-        } else {
-            empty_favorit.visibility = View.VISIBLE
+            rv_ProdukFav.visibility = View.VISIBLE
         }
     }
 
