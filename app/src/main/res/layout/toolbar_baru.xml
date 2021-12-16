@@ -15,7 +15,7 @@
               android:layout_height="?attr/actionBarSize"
               android:theme="@style/ThemeOverlay.AppCompat.Dark"
               app:contentInsetStartWithNavigation="0dp"
-              app:paddingEnd="5dp"
+              app:paddingEnd="@dimen/_5sdp"
               app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
      </RelativeLayout>
 </com.google.android.material.appbar.AppBarLayout>

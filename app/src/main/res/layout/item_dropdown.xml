@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:textSize="@dimen/txtNormal"
-    android:fontFamily="@font/mlight"
-    android:textStyle="bold"
-    android:padding="5dip" />
+    android:textSize="@dimen/_12ssp"
+    android:fontFamily="@font/mmedium"
+    android:padding="@dimen/_5sdp" />

@@ -109,7 +109,7 @@ class FavoritProdukActivity : AppCompatActivity() {
 
     private fun insert(data: Produk){
         val myDb = MyDatabase.getInstance(this)
-        CompositeDisposable().add(Observable.fromCallable { myDb!!.daoKeranjang()!!.insert(data) }
+        CompositeDisposable().add(Observable.fromCallable { myDb!!.daoKeranjang().insert(data) }
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {

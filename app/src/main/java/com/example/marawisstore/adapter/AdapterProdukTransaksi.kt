@@ -57,8 +57,8 @@ class AdapterProdukTransaksi(var data:ArrayList<DetailTransaksi>): RecyclerView.
         var gambar = Config.produkUrl + p.image
         Picasso.get()
                 .load(gambar)
-                .placeholder(R.drawable.blank)
-                .error(R.drawable.blank)
+                .placeholder(R.color.color_300)
+                .error(R.color.color_300)
                 .into(holder.imgProduk)
     }
 

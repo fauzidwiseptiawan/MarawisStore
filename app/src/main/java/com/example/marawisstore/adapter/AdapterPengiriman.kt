@@ -55,8 +55,8 @@ class AdapterPengiriman(var activity: Activity, var data: ArrayList<Produk>): Re
         var gambar = Config.produkUrl + data[position].image
         Picasso.get()
             .load(gambar)
-            .placeholder(R.drawable.blank)
-            .error(R.drawable.blank)
+            .placeholder(R.color.color_300)
+            .error(R.color.color_300)
             .into(holder.imgProduk)
 
     }

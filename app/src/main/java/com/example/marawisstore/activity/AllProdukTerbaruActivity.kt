@@ -4,22 +4,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.animation.GridLayoutAnimationController
-import android.widget.GridView
-import android.widget.Toast
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.marawisstore.R
 import com.example.marawisstore.adapter.AdapterAllProduk
-import com.example.marawisstore.adapter.AdapterProdukTerbaru
 import com.example.marawisstore.app.ApiConfig
 import com.example.marawisstore.helper.Helper
 import com.example.marawisstore.model.Produk
 import com.example.marawisstore.model.ResponModel
 import com.example.marawisstore.room.MyDatabase
-import kotlinx.android.synthetic.main.activity_all_produk_terbaru.*
+import kotlinx.android.synthetic.main.activity_all_produk.*
 import kotlinx.android.synthetic.main.activity_favorit_produk.*
-import kotlinx.android.synthetic.main.activity_favorit_produk.rv_ProdukFav
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.toolbar_baru.*
 import kotlinx.android.synthetic.main.toolbar_costume.*
@@ -34,7 +27,7 @@ class AllProdukTerbaruActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_all_produk_terbaru)
+        setContentView(R.layout.activity_all_produk)
         //Set Toolbar
         Helper().setToolbarCostume(this, toolbar_costume, "Produk Terbaru")
 
@@ -53,12 +46,7 @@ class AllProdukTerbaruActivity : AppCompatActivity() {
     }
 
     private fun displayProduk(){
-        val layoutManager = GridLayoutManager(this,2)
-
-        layoutManager.orientation = LinearLayoutManager.VERTICAL
-
         rv_all_produk_baru.adapter = AdapterAllProduk(this, listProduk)
-        rv_all_produk_baru.layoutManager = layoutManager
     }
 
     fun getProdukTerbaruAll() {
@@ -77,7 +65,6 @@ class AllProdukTerbaruActivity : AppCompatActivity() {
             }
 
         })
-
     }
 
     private fun checkKeranjang(){

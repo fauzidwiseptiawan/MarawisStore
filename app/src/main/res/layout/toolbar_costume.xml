@@ -15,15 +15,15 @@
               android:layout_height="?attr/actionBarSize"
               android:theme="@style/ThemeOverlay.AppCompat.Dark"
               app:contentInsetStartWithNavigation="0dp"
-              app:paddingEnd="5dp"
+              app:paddingEnd="@dimen/_5sdp"
               app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
           <RelativeLayout
               android:id="@+id/btn_toKeranjang"
-              android:layout_width="40dp"
-              android:layout_height="40dp"
+              android:layout_width="@dimen/_40sdp"
+              android:layout_height="@dimen/_40sdp"
               android:layout_alignParentEnd="true"
               android:layout_centerVertical="true"
-              android:layout_marginEnd="15dp">
+              android:layout_marginEnd="@dimen/_15sdp">
                <ImageView
                    android:layout_width="30dp"
                    android:layout_height="30dp"
@@ -31,8 +31,8 @@
                    app:srcCompat="@drawable/ic_baseline_shopping_cart" />
                <RelativeLayout
                    android:id="@+id/div_angka"
-                   android:layout_width="18dp"
-                   android:layout_height="18dp"
+                   android:layout_width="@dimen/_18sdp"
+                   android:layout_height="@dimen/_18sdp"
                    android:layout_alignParentEnd="true"
                    android:background="@drawable/bg_bulet"
                    android:visibility="gone">
@@ -44,12 +44,9 @@
                         android:maxLength="2"
                         android:text="1"
                         android:fontFamily="@font/mmedium"
-                        android:textStyle="bold"
                         android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/txtNormal" />
+                        android:textSize="@dimen/_12ssp" />
                </RelativeLayout>
           </RelativeLayout>
      </RelativeLayout>
-
-
 </com.google.android.material.appbar.AppBarLayout>

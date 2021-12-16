@@ -12,71 +12,74 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_margin="@dimen/_15sdp"
         android:text="Alamat Pengiriman"
         android:fontFamily="@font/mmedium"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/txtNormal"
+        android:textSize="@dimen/_15ssp"
         android:textStyle="bold" />
     <LinearLayout
         android:id="@+id/div_kosong"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:orientation="vertical"
         android:visibility="gone">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="15dp"
+            android:layout_margin="@dimen/_10sdp"
             android:text="Belum ada alamat"
-            android:textColor="@color/colorBlack"
-            android:textStyle="bold"
-            android:visibility="visible"/>
+            android:textSize="@dimen/_11ssp"
+            android:fontFamily="@font/mmedium"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:gravity="center"
             android:text="Tambahkan alamat segera untuk belanja di Marawis Store"
-            android:textColor="@color/colorBlack"
-            android:visibility="visible"/>
+            android:textSize="@dimen/_11ssp"
+            android:fontFamily="@font/mmedium"/>
     </LinearLayout>
     <TextView
         android:visibility="gone"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_margin="@dimen/_15sdp"
         android:text="Belum ada daftar alamat"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_alamat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_centerInParent="true">
-        <RelativeLayout
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:id="@+id/btn_tambah_alamat_baru"
-            android:layout_width="150dp"
-            android:layout_marginTop="20dp"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_btn_keranjang2">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Tambah Alamat"
-                android:fontFamily="@font/mlight"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/txtNormal" />
-        </RelativeLayout>
-    </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_alamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:spanCount="1"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_alamat" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <RelativeLayout
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:id="@+id/btn_tambah_alamat_baru"
+                android:layout_width="@dimen/_120sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:background="@drawable/bg_btn_keranjang2"
+                android:focusable="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Tambah Alamat"
+                    android:fontFamily="@font/mmedium"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_13ssp" />
+            </RelativeLayout>
+        </LinearLayout>
 </LinearLayout>

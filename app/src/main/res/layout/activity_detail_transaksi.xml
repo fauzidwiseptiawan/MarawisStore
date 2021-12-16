@@ -11,8 +11,7 @@
         android:layout_height="wrap_content" />
     <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorWhite">
+            android:layout_height="match_parent">
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -21,300 +20,323 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:padding="5dp">
-                    <androidx.cardview.widget.CardView
+                    android:padding="@dimen/_1sdp">
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="3dp"
-                        app:cardElevation="1dp">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:paddingVertical="@dimen/_5sdp">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:padding="5dp">
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:paddingVertical="@dimen/_5sdp">
                             <RelativeLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:paddingVertical="@dimen/_5sdp">
                                 <TextView
                                     android:id="@+id/tv_status"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="MENUNGGU"
-                                    android:fontFamily="@font/mlight"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:textStyle="bold"
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp"
                                     android:textColor="@color/colorSelesai" />
                             </RelativeLayout>
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp">
+                                android:paddingVertical="@dimen/_5sdp">
                                 <TextView
                                     android:id="@+id/tv_kodetrx"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="INV/2021/23123/1231"
-                                    android:fontFamily="@font/mlight"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:textColor="@color/colorBlack"
-                                    android:textStyle="bold" />
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp" />
                             </RelativeLayout>
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp">
+                                android:paddingVertical="@dimen/_5sdp">
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Tanggal Pesanan"
-                                    android:fontFamily="@font/mlight"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorBlack"/>
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp"/>
                                 <TextView
                                     android:id="@+id/tv_tgl"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="100dp"
                                     android:layout_alignParentEnd="true"
                                     android:text="18 November 2021, 13:14 WIB"
-                                    android:fontFamily="@font/mlight"
-                                    android:textSize="@dimen/txtSmall"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorBlack"/>
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp"/>
                             </RelativeLayout>
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_10sdp"
+                        android:background="@color/color_100"/>
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_produk"
+                        android:padding="@dimen/_5sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="@dimen/_5sdp"
                         tools:itemCount="2"
                         tools:listitem="@layout/item_produk_transaksi" />
-                    <androidx.cardview.widget.CardView
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_10sdp"
+                        android:background="@color/color_100"/>
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        app:cardCornerRadius="3dp"
-                        app:cardElevation="1dp">
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:background="@color/colorWhite">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="10dp">
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:paddingVertical="@dimen/_5sdp"
+                            android:orientation="vertical">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Info Pengiriman"
                                 android:fontFamily="@font/mmedium"
-                                android:textSize="@dimen/txtNormal"
+                                android:textSize="@dimen/_12ssp"
+                                android:paddingVertical="@dimen/_5sdp"
                                 android:textStyle="bold"
-                                android:textColor="@color/colorBlack" />
+                                android:textColor="@color/colorBlack"/>
                             <RelativeLayout
+                                android:orientation="horizontal"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp">
+                                android:paddingVertical="@dimen/_5sdp">
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Kurir"
-                                    android:fontFamily="@font/mlight"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorBlack" />
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp"/>
                                 <TextView
                                     android:id="@+id/tv_kurir"
+                                    android:layout_marginStart="@dimen/_80sdp"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_marginStart="100dp"
                                     android:text="JNE - CTR"
-                                    android:fontFamily="@font/mlight"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorBlack" />
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp" />
                             </RelativeLayout>
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp">
+                                android:paddingVertical="@dimen/_5sdp">
                                 <TextView
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:text="No Resi"
-                                    android:fontFamily="@font/mlight"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorBlack" />
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp" />
                                 <TextView
                                     android:visibility="gone"
                                     android:id="@+id/tv_resi"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_marginStart="100dp"
+                                    android:layout_marginStart="@dimen/_80sdp"
                                     android:text="98221231"
-                                    android:fontFamily="@font/mlight"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorBlack" />
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp" />
                                 <TextView
-                                    android:visibility="gone"
                                     android:id="@+id/tv_resiKosong"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_marginStart="100dp"
+                                    android:layout_marginStart="@dimen/_80sdp"
                                     android:text="Resi belum di input"
-                                    android:fontFamily="@font/mlight"
-                                    android:textSize="@dimen/txtNormal"
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_10ssp"
                                     android:textStyle="italic" />
                             </RelativeLayout>
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp">
+                                android:paddingVertical="@dimen/_5sdp">
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Alamat"
-                                    android:fontFamily="@font/mlight"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorBlack" />
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp" />
                                 <TextView
                                     android:id="@+id/tv_nama_pelanggan"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginStart="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_80sdp"
                                     android:text="Fauzi Dwi Septiawan"
                                     android:fontFamily="@font/mmedium"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorBlack"/>
+                                    android:textSize="@dimen/_11ssp"
+                                    android:textStyle="bold"/>
                             </RelativeLayout>
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
-                                <TextView
-                                    android:id="@+id/tv_telpon"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginStart="100dp"
-                                    android:text="05718305933"
-                                    android:fontFamily="@font/mlight"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorBlack" />
-                            </RelativeLayout>
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
-                                <TextView
-                                    android:id="@+id/tv_alamat"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginStart="100dp"
-                                    android:text="Bogor"
-                                    android:fontFamily="@font/mlight"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorBlack" />
-                            </RelativeLayout>
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        app:cardBackgroundColor="@color/colorWhite"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        app:cardCornerRadius="3dp"
-                        app:cardElevation="1dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="10dp">
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp">
+                                android:paddingVertical="@dimen/_1sdp">
+                                <TextView
+                                    android:id="@+id/tv_telpon"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_80sdp"
+                                    android:text="05718305933"
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp" />
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:paddingVertical="@dimen/_1sdp">
+                                <TextView
+                                    android:id="@+id/tv_alamat"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_80sdp"
+                                    android:text="Bogor"
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp" />
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_10sdp"
+                        android:background="@color/color_100"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:background="@color/colorWhite">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:paddingVertical="@dimen/_5sdp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rinci Pembayaran"
+                                android:fontFamily="@font/mmedium"
+                                android:paddingVertical="@dimen/_5sdp"
+                                android:textSize="@dimen/_12ssp"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorBlack"/>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingVertical="@dimen/_5sdp">
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Metode Pembayaran"
-                                    android:fontFamily="@font/mlight"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorBlack" />
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp" />
                                 <TextView
                                     android:id="@+id/tv_metode"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentEnd="true"
-                                    android:layout_marginStart="150dp"
                                     android:text="BNI Transfer"
-                                    android:fontFamily="@font/mlight"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorBlack" />
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp"/>
                             </RelativeLayout>
+                            <View
+                                android:layout_width="wrap_content"
+                                android:layout_height="1dp"
+                                android:background="@color/color_300" />
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp">
+                                android:paddingVertical="@dimen/_5sdp">
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Total Belanja"
-                                    android:fontFamily="@font/mlight"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorBlack"/>
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp"/>
                                 <TextView
                                     android:id="@+id/tv_totalBelanja"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentEnd="true"
-                                    android:layout_marginStart="150dp"
                                     android:text="Rp 100.000"
-                                    android:fontFamily="@font/mlight"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorBlack" />
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp"/>
                             </RelativeLayout>
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp">
+                                android:paddingVertical="@dimen/_5sdp">
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Total Ongkos Kirim"
-                                    android:fontFamily="@font/mlight"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorBlack" />
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp" />
                                 <TextView
                                     android:id="@+id/tv_ongkir"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentEnd="true"
-                                    android:layout_marginStart="150dp"
                                     android:text="Rp 15.000"
-                                    android:fontFamily="@font/mlight"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/colorBlack" />
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp" />
                             </RelativeLayout>
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp">
+                                android:paddingVertical="@dimen/_5sdp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Total Diskon"
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp" />
+                                <TextView
+                                    android:id="@+id/tv_diskon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginStart="@dimen/_150sdp"
+                                    android:text="Rp 15.000"
+                                    android:fontFamily="@font/mmedium"
+                                    android:textSize="@dimen/_11ssp" />
+                            </RelativeLayout>
+                            <View
+                                android:layout_width="wrap_content"
+                                android:layout_height="1dp"
+                                android:background="@color/color_300" />
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingVertical="@dimen/_5sdp">
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Total Bayar"
                                     android:fontFamily="@font/mmedium"
-                                    android:textSize="@dimen/txtNormal"
+                                    android:textSize="@dimen/_11ssp"
                                     android:textStyle="bold"
                                     android:textColor="@color/colorBlack" />
                                 <TextView
@@ -322,15 +344,14 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentEnd="true"
-                                    android:layout_marginStart="150dp"
                                     android:text="Rp 900.000"
                                     android:fontFamily="@font/mmedium"
-                                    android:textSize="@dimen/txtNormal"
+                                    android:textSize="@dimen/_11ssp"
                                     android:textStyle="bold"
                                     android:textColor="@color/colorBlack" />
                             </RelativeLayout>
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
             <LinearLayout
@@ -338,10 +359,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:background="@color/colorWhite"
+                android:background="@drawable/bg_footer"
                 android:orientation="horizontal"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp">
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingVertical="@dimen/_10sdp">
                 <RelativeLayout
                     android:id="@+id/btn_beli"
                     android:clickable="true"
@@ -355,20 +376,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:layout_margin="12dp"
+                        android:layout_margin="@dimen/_10sdp"
                         android:text="Batal"
                         android:fontFamily="@font/mmedium"
-                        android:textSize="@dimen/txtNormal"
-                        android:textStyle="bold"
+                        android:textSize="@dimen/_13ssp"
                         android:textColor="@color/colorPrimary" />
                 </RelativeLayout>
                 <RelativeLayout
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:id="@+id/btn_keranjang"
-                    android:layout_width="180dp"
+                    android:layout_width="@dimen/_140sdp"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="@dimen/_5sdp"
                     android:background="@drawable/bg_btn_beli"
                     android:focusable="true">
                     <TextView
@@ -378,8 +398,7 @@
                         android:text="Upload Bukti Bayar"
                         android:textColor="@color/colorWhite"
                         android:fontFamily="@font/mmedium"
-                        android:textSize="@dimen/txtNormal"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/_13ssp" />
                 </RelativeLayout>
             </LinearLayout>
         </RelativeLayout>

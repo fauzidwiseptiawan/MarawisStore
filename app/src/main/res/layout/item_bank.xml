@@ -11,25 +11,23 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:padding="@dimen/_5sdp">
         <ImageView
             android:id="@+id/image"
-            android:layout_width="70dp"
-            android:layout_height="25dp"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_25sdp"
             android:src="@drawable/logo_bca" />
         <TextView
             android:id="@+id/tv_nama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:fontFamily="@font/mlight"
-            android:textStyle="bold"
-            android:textSize="@dimen/txtNormal"
-            android:text="BCA"
-            android:textColor="@color/colorBlack" />
+            android:fontFamily="@font/mmedium"
+            android:textSize="@dimen/_13ssp"
+            android:text="BCA"/>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#EAEAEA" />
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/color_300" />
 </LinearLayout>

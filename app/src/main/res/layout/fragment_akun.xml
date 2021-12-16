@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -20,392 +19,327 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:gravity="center_horizontal"
-            android:padding="10dp"
+            android:padding="@dimen/_10sdp"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/mmedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/txtTitle"
+                android:textSize="@dimen/_13ssp"
                 android:gravity="center"
                 android:text="PROFILE"
                 android:textColor="@color/colorWhite"/>
             <de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
+                android:layout_width="@dimen/_95sdp"
+                android:layout_height="@dimen/_95sdp"
                 android:src="@drawable/blank"
-                app:civ_border_width="2dp"
+                app:civ_border_width="@dimen/_2sdp"
                 app:civ_border_color="@color/colorPrimary"/>
             <TextView
                 android:id="@+id/tv_nama_profil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="@dimen/txtNormal"
-                android:fontFamily="@font/mlight"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/mmedium"
                 android:textColor="@color/colorWhite"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:text="Nama User"/>
-
             <TextView
                 android:id="@+id/tv_telpon_profil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textColor="@color/colorWhite"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/mlight"
-                android:textSize="@dimen/txtNormal"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/mmedium"
+                android:textSize="@dimen/_12ssp"
                 android:text="Nomor Telepon"/>
-
             <TextView
                 android:id="@+id/tv_email_profil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:fontFamily="@font/mlight"
-                android:textSize="@dimen/txtNormal"
+                android:fontFamily="@font/mmedium"
+                android:textSize="@dimen/_12ssp"
                 android:textColor="@color/colorWhite"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="@dimen/_2sdp"
                 android:text="Email"/>
-
             <androidx.cardview.widget.CardView
-                android:layout_marginHorizontal="1dp"
-                android:layout_marginBottom="2dp"
-                app:cardElevation="5dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="@dimen/_1sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                app:cardElevation="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_30sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
                 <LinearLayout
-                    android:paddingHorizontal="20dp"
-                    android:paddingVertical="20dp"
+                    android:paddingHorizontal="@dimen/_20sdp"
+                    android:paddingVertical="@dimen/_20sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
-
+                    android:padding="@dimen/_10sdp">
                     <RelativeLayout
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
-                        android:layout_marginLeft="10dp"
-                        android:paddingTop="10dp"
-                        android:gravity="center_vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:gravity="center_vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_edit"/>
-
-                        <TextView
-                            android:layout_marginLeft="10dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ubah Profil"
-                            android:fontFamily="@font/mlight"
-                            android:textSize="@dimen/txtNormal"
-                            android:textColor="@color/colorBlack"/>
-
-                    </LinearLayout>
-
-                        <ImageView
-                            android:layout_alignParentRight="true"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_keyboard_arrow_right"/>
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:clickable="true"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="15dp"
-                        android:gravity="center_vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:gravity="center_vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_lock"/>
-
-                            <TextView
-                                android:layout_marginLeft="10dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/mlight"
-                                android:textSize="@dimen/txtNormal"
-                                android:text="Ubah Password"
-                                android:textColor="@color/colorBlack"/>
-
-                        </LinearLayout>
-
-                        <ImageView
-                            android:layout_alignParentRight="true"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_keyboard_arrow_right"/>
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:clickable="true"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="15dp"
-                        android:gravity="center_vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:gravity="center_vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_notifications"/>
-
-                            <TextView
-                                android:layout_marginLeft="10dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/mlight"
-                                android:textSize="@dimen/txtNormal"
-                                android:text="Notifikasi"
-                                android:textColor="@color/colorBlack"/>
-
-                        </LinearLayout>
-                        
-                        <Switch
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_marginHorizontal="1dp"
-                android:layout_marginBottom="2dp"
-                app:cardElevation="5dp"
-                android:layout_marginTop="30dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:paddingHorizontal="20dp"
-                    android:paddingVertical="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <RelativeLayout
-                        android:id="@+id/btn_riwayat"
-                        android:clickable="true"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:focusable="true">
-
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_edit"/>
+                        <TextView
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ubah Profil"
+                            android:fontFamily="@font/mmedium"
+                            android:textSize="@dimen/_12ssp"/>
+                    </LinearLayout>
+                        <ImageView
+                            android:layout_alignParentEnd="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_keyboard_arrow_right"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:focusable="true">
                         <LinearLayout
                             android:gravity="center_vertical"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_lock"/>
+                            <TextView
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/mmedium"
+                                android:textSize="@dimen/_12ssp"
+                                android:text="Ubah Password"/>
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_alignParentRight="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_keyboard_arrow_right"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:focusable="true">
+                        <LinearLayout
+                            android:gravity="center_vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_notifications"/>
+                            <TextView
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/mmedium"
+                                android:textSize="@dimen/_12ssp"
+                                android:text="Notifikasi"/>
+                        </LinearLayout>
+                        <Switch
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            tools:ignore="UseSwitchCompatOrMaterialXml" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_marginHorizontal="@dimen/_1sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                app:cardElevation="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:paddingVertical="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+                    <RelativeLayout
+                        android:id="@+id/btn_riwayat"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:focusable="true">
+                        <LinearLayout
+                            android:gravity="center_vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/ic_history"/>
-
                             <TextView
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="@dimen/_5sdp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/mlight"
-                                android:textSize="@dimen/txtNormal"
-                                android:text="Riwayat Belanja"
-                                android:textColor="@color/colorBlack"/>
-
+                                android:fontFamily="@font/mmedium"
+                                android:textSize="@dimen/_12ssp"
+                                android:text="Riwayat Belanja"/>
                         </LinearLayout>
-
                         <ImageView
-                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_keyboard_arrow_right"/>
-
                     </RelativeLayout>
-
                     <RelativeLayout
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:id="@+id/btn_keranjang"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
+                        android:orientation="horizontal"
+                        android:focusable="true">
                         <LinearLayout
                             android:gravity="center_vertical"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/ic_shopping"/>
-
                             <TextView
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="@dimen/_5sdp"
                                 android:layout_width="wrap_content"
-                                android:fontFamily="@font/mlight"
-                                android:textSize="@dimen/txtNormal"
+                                android:fontFamily="@font/mmedium"
+                                android:textSize="@dimen/_12ssp"
                                 android:layout_height="wrap_content"
-                                android:text="Daftar Keranjang"
-                                android:textColor="@color/colorBlack"/>
-
+                                android:text="Daftar Keranjang"/>
                         </LinearLayout>
-
                         <ImageView
                             android:layout_alignParentRight="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_keyboard_arrow_right"/>
-
                     </RelativeLayout>
-
                     <RelativeLayout
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:id="@+id/btn_wishList"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
-
                         <LinearLayout
                             android:gravity="center_vertical"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/ic_baseline_favorite"/>
-
                             <TextView
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="@dimen/_5sdp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/mlight"
-                                android:textSize="@dimen/txtNormal"
-                                android:text="Wishlist"
-                                android:textColor="@color/colorBlack"/>
-
+                                android:fontFamily="@font/mmedium"
+                                android:textSize="@dimen/_12ssp"
+                                android:text="Wishlist"/>
                         </LinearLayout>
-
                         <ImageView
-                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_keyboard_arrow_right"/>
-
                     </RelativeLayout>
-
                     <RelativeLayout
                         android:id="@+id/btn_alamat"
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
+                        android:orientation="horizontal"
+                        android:focusable="true">
                         <LinearLayout
                             android:gravity="center_vertical"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/ic_edit_location"/>
-
                             <TextView
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="@dimen/_5sdp"
                                 android:layout_width="wrap_content"
-                                android:fontFamily="@font/mlight"
-                                android:textSize="@dimen/txtNormal"
+                                android:fontFamily="@font/mmedium"
+                                android:textSize="@dimen/_12ssp"
                                 android:layout_height="wrap_content"
-                                android:text="Pengaturan Alamat"
-                                android:textColor="@color/colorBlack"/>
-
+                                android:text="Pengaturan Alamat"/>
                         </LinearLayout>
-
                         <ImageView
                             android:layout_alignParentRight="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_keyboard_arrow_right"/>
                     </RelativeLayout>
-
-
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
-
             <androidx.cardview.widget.CardView
                 android:layout_marginHorizontal="1dp"
                 android:layout_marginBottom="2dp"
@@ -413,7 +347,6 @@
                 android:layout_marginTop="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
                 <LinearLayout
                     android:paddingHorizontal="20dp"
                     android:paddingVertical="20dp"
@@ -421,124 +354,103 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="20dp">
-
                     <RelativeLayout
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
-                        android:layout_marginLeft="10dp"
-                        android:paddingTop="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
+                        android:orientation="horizontal"
+                        android:focusable="true">
                         <LinearLayout
                             android:gravity="center_vertical"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/ic_business"/>
-
                             <TextView
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="@dimen/_5sdp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/mlight"
-                                android:textSize="@dimen/txtNormal"
-                                android:text="Tentang Kami"
-                                android:textColor="@color/colorBlack"/>
-
+                                android:fontFamily="@font/mmedium"
+                                android:textSize="@dimen/_12ssp"
+                                android:text="Tentang Kami"/>
                         </LinearLayout>
-
                         <ImageView
                             android:layout_alignParentRight="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_keyboard_arrow_right"/>
-
                     </RelativeLayout>
-
                     <RelativeLayout
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
+                        android:orientation="horizontal"
+                        android:focusable="true">
                         <LinearLayout
                             android:gravity="center_vertical"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/ic_help"/>
-
                             <TextView
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="@dimen/_10sdp"
                                 android:layout_width="wrap_content"
-                                android:fontFamily="@font/mlight"
-                                android:textSize="@dimen/txtNormal"
+                                android:fontFamily="@font/mmedium"
+                                android:textSize="@dimen/_12ssp"
                                 android:layout_height="wrap_content"
-                                android:text="Bantuan"
-                                android:textColor="@color/colorBlack"/>
-
+                                android:text="Bantuan"/>
                         </LinearLayout>
-
                         <ImageView
                             android:layout_alignParentRight="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_keyboard_arrow_right"/>
-
                     </RelativeLayout>
-
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
-
             <TextView
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:textStyle="bold"
                 android:id="@+id/btn_prosesLogout"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="@dimen/_25sdp"
                 android:textColor="@color/colorBlack"
                 android:fontFamily="@font/mmedium"
-                android:textSize="@dimen/txtTitle"
+                android:textSize="@dimen/_15ssp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Log Out"/>
-
+                android:text="Log Out"
+                android:focusable="true" />
             <TextView
-                android:textSize="@dimen/txtNormal"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="5dp"
+                android:textSize="@dimen/_11ssp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:textColor="@color/colorBlack"
                 android:layout_gravity="center_horizontal"
-                android:fontFamily="@font/mlight"
+                android:fontFamily="@font/mmedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Verison 1.0.0"/>
-
         </LinearLayout>
-
     </ScrollView>
-
     <ProgressBar
         android:visibility="gone"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_centerInParent="true"/>
-
 </RelativeLayout>

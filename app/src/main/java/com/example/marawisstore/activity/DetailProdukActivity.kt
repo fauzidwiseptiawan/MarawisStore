@@ -7,12 +7,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.marawisstore.R
-import com.example.marawisstore.adapter.AdapterProdukTerbaru
-import com.example.marawisstore.adapter.AdapterProdukTerkait
+import com.example.marawisstore.adapter.AdapterProduk
 import com.example.marawisstore.app.ApiConfig
 import com.example.marawisstore.helper.Helper
 import com.example.marawisstore.model.Produk
@@ -29,7 +26,6 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_detail_produk.*
 import kotlinx.android.synthetic.main.activity_detail_produk.btn_favorit
 import kotlinx.android.synthetic.main.activity_detail_produk.tv_nama
-import kotlinx.android.synthetic.main.activity_pengiriman.*
 import kotlinx.android.synthetic.main.toolbar_costume.*
 import kotlinx.android.synthetic.main.toolbar_costume.btn_toKeranjang
 import kotlinx.android.synthetic.main.toolbar_costume.div_angka
@@ -169,17 +165,21 @@ class DetailProdukActivity : AppCompatActivity() {
         val data = intent.getStringExtra("extra")
         produk = Gson().fromJson<Produk>(data, Produk::class.java)
 
-//        if (produk.diskon == null){
-//            tv_diskon_P.visibility = View.VISIBLE
-//            tv_diskon_P.text = Helper().gantiRupiah(produk.diskon)
-//            tv_diskon_P.paintFlags = tv_diskon_P.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-//        } else{
-//            tv_diskon_P.visibility = View.INVISIBLE
-//        }
+        val diskon = Integer.valueOf(produk.diskon)
+        val harga = Integer.valueOf(produk.harga)
+        val hargaCoret = (harga - ((produk.diskon.toDouble() / 100) * harga).toInt())
+
+        if (produk.diskon != 0){
+            ly_promo.visibility = View.GONE
+            ly_diskon.visibility = View.VISIBLE
+            tv_diskon.text = Helper().gantiRupiah(harga)
+            tv_diskon.paintFlags = tv_diskon.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+        }
 
         //Set Value
+        tv_persen.text = "${diskon}%"
         tv_nama.text = produk.nama_produk
-        tv_harga.text = Helper().gantiRupiah(""+produk.harga)
+        tv_harga_produk.text = Helper().gantiRupiah(hargaCoret)
         tv_sku.text = produk.kode_produk
         tv_stok.text = produk.stok+" Set"
         tv_berat.text = produk.berat+" Gram"
@@ -209,7 +209,7 @@ class DetailProdukActivity : AppCompatActivity() {
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
 
-        rv_produkTerkait.adapter = AdapterProdukTerkait(this, listProduk)
+        rv_produkTerkait.adapter = AdapterProduk(this, listProduk)
         rv_produkTerkait.layoutManager = layoutManager
     }
 

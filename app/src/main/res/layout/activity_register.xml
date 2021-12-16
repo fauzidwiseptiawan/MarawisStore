@@ -8,7 +8,7 @@
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/_50sdp"
         android:gravity="center"
         android:orientation="horizontal"
         android:background="@color/colorWhite">
@@ -17,20 +17,21 @@
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
             android:layout_gravity="center"
-            android:layout_width="30dp"
-            android:layout_marginLeft="15dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_baseline_arrow_back"/>
+            android:layout_width="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:src="@drawable/ic_baseline_arrow_back"
+            android:focusable="true" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:layout_marginEnd="40dp"
+            android:layout_marginEnd="@dimen/_40sdp"
             android:text="Register"
             android:textStyle="bold"
             android:fontFamily="@font/mmedium"
-            android:textSize="@dimen/txtNormal"
+            android:textSize="@dimen/_13ssp"
             android:textColor="@color/colorBlack"/>
     </LinearLayout>
     <RelativeLayout
@@ -42,24 +43,20 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:paddingHorizontal="15dp"
-                android:padding="5dp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:paddingHorizontal="@dimen/_15ssp"
+                android:padding="@dimen/_5sdp"
                 android:orientation="vertical">
                 <com.google.android.material.textfield.TextInputLayout
-                    android:padding="5dp"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
+                    android:layout_margin="@dimen/_1sdp"
                     app:boxStrokeColor="@color/colorPrimary">
                     <EditText
-                        android:paddingEnd="12dp"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/mlight"
-                        android:textSize="@dimen/txtNormal"
-                        android:textColor="@color/colorBlack"
-                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/mmedium"
+                        android:textSize="@dimen/_12ssp"
+                        android:drawablePadding="@dimen/_10sdp"
                         android:id="@+id/edt_nama"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -67,19 +64,15 @@
                         android:inputType="text"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:padding="5dp"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
+                    android:layout_margin="@dimen/_1sdp"
                     app:boxStrokeColor="@color/colorPrimary">
                     <EditText
-                        android:paddingEnd="12dp"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/mlight"
-                        android:textSize="@dimen/txtNormal"
-                        android:textColor="@color/colorBlack"
-                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/mmedium"
+                        android:textSize="@dimen/_12ssp"
+                        android:drawablePadding="@dimen/_10ssp"
                         android:id="@+id/edt_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -87,19 +80,15 @@
                         android:inputType="textEmailAddress"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:padding="5dp"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
+                    android:layout_margin="@dimen/_1sdp"
                     app:boxStrokeColor="@color/colorPrimary">
                     <EditText
-                        android:paddingEnd="12dp"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/mlight"
-                        android:textSize="@dimen/txtNormal"
-                        android:textColor="@color/colorBlack"
-                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/mmedium"
+                        android:textSize="@dimen/_12ssp"
+                        android:drawablePadding="@dimen/_10sdp"
                         android:id="@+id/edt_telpon"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -107,20 +96,16 @@
                         android:inputType="number"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:padding="5dp"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
+                    android:layout_margin="@dimen/_1sdp"
                     app:passwordToggleEnabled="true"
                     app:boxStrokeColor="@color/colorPrimary">
                     <EditText
-                        android:paddingEnd="12dp"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/mlight"
-                        android:textSize="@dimen/txtNormal"
-                        android:textColor="@color/colorBlack"
-                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/mmedium"
+                        android:textSize="@dimen/_12ssp"
+                        android:drawablePadding="@dimen/_10sdp"
                         android:id="@+id/edt_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -132,70 +117,67 @@
                     android:foreground="?android:attr/selectableItemBackground"
                     android:id="@+id/btn_registerInput"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/bg_btn_beli">
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:background="@drawable/bg_btn_beli"
+                    android:focusable="true">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="Daftar"
                         android:textColor="@color/colorWhite"
-                        android:textStyle="bold"
                         android:fontFamily="@font/mmedium"
-                        android:textSize="@dimen/txtNormal" />
+                        android:textSize="@dimen/_13ssp" />
                 </RelativeLayout>
                 <LinearLayout
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="horizontal">
                     <View
                         android:layout_width="0dp"
-                        android:layout_height="1dp"
+                        android:layout_height="@dimen/_1sdp"
                         android:layout_weight="1"
-                        android:background="#CACACA" />
+                        android:background="@color/color_300" />
                     <TextView
-                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
                         android:layout_width="wrap_content"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/mlight"
-                        android:textSize="@dimen/txtNormal"
+                        android:fontFamily="@font/mmedium"
+                        android:textSize="@dimen/_10ssp"
                         android:layout_height="wrap_content"
                         android:text="Atau Masuk Dengan"/>
                     <View
                         android:layout_width="0dp"
-                        android:layout_height="1dp"
+                        android:layout_height="@dimen/_1sdp"
                         android:layout_weight="1"
-                        android:background="#CACACA" />
+                        android:background="@color/color_300" />
                 </LinearLayout>
                 <RelativeLayout
-                    android:layout_marginBottom="25dp"
+                    android:layout_marginBottom="@dimen/_20sdp"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:id="@+id/btn_google"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="13dp"
+                    android:padding="@dimen/_13sdp"
                     android:background="@drawable/bg_footer"
                     android:focusable="true">
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
                         android:src="@drawable/google"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="Google"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/mlight"
-                        android:textSize="@dimen/txtNormal"
-                        android:textColor="@color/colorBlack"
+                        android:fontFamily="@font/mmedium"
+                        android:textSize="@dimen/_13ssp"
                         android:layout_centerVertical="true"
-                        android:layout_marginStart="5dp"/>
+                        android:layout_marginStart="@dimen/_5sdp"/>
                 </RelativeLayout>
             </LinearLayout>
         </ScrollView>

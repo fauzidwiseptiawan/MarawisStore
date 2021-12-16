@@ -8,14 +8,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.marawisstore.R
 import com.example.marawisstore.adapter.AdapterAllProduk
-import com.example.marawisstore.adapter.AdapterProdukLainnya
 import com.example.marawisstore.app.ApiConfig
 import com.example.marawisstore.helper.Helper
 import com.example.marawisstore.model.Produk
 import com.example.marawisstore.model.ResponModel
 import com.example.marawisstore.room.MyDatabase
-import kotlinx.android.synthetic.main.activity_all_produk_lain.*
-import kotlinx.android.synthetic.main.activity_all_produk_terbaru.*
+import kotlinx.android.synthetic.main.activity_all_produk.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.toolbar_baru.*
 import kotlinx.android.synthetic.main.toolbar_costume.*
@@ -30,7 +28,7 @@ class AllProdukLainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_all_produk_lain)
+        setContentView(R.layout.activity_all_produk)
         //Set Toolbar
         Helper().setToolbarCostume(this, toolbar_costume, "Produk Lainnya")
 
@@ -53,8 +51,8 @@ class AllProdukLainActivity : AppCompatActivity() {
 
         layoutManager.orientation = LinearLayoutManager.VERTICAL
 
-        rv_all_produk_lainnya.adapter = AdapterAllProduk(this, listProduk)
-        rv_all_produk_lainnya.layoutManager = layoutManager
+        rv_all_produk_baru.adapter = AdapterAllProduk(this, listProduk)
+        rv_all_produk_baru.layoutManager = layoutManager
     }
 
     fun getProdukLainnyaAll() {
@@ -76,7 +74,6 @@ class AllProdukLainActivity : AppCompatActivity() {
             }
 
         })
-
     }
 
     private fun checkKeranjang(){

@@ -19,7 +19,7 @@ public class Produk implements Serializable {
     public String keterangan;
     public String harga;
     public String stok;
-    public String diskon;
+    public int diskon = 0;
     public String berat;
     public String status_produk;
     public String created_at;

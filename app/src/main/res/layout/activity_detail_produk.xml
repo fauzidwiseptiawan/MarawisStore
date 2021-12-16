@@ -18,246 +18,285 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/div_footer">
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/div_footer">
-            <LinearLayout
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <ImageView
-                    android:id="@+id/image"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:src="@drawable/blank" />
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/div_footer">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="15dp">
-                    <RelativeLayout
+                    android:orientation="vertical">
+                    <ImageView
+                        android:id="@+id/image"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:id="@+id/tv_nama"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="10dp"
-                            android:layout_toStartOf="@+id/btn_share"
-                            android:ellipsize="marquee"
-                            android:maxLines="3"
-                            android:text="Nama Produk "
-                            android:textColor="@color/colorBlack"
-                            android:textSize="@dimen/txtTitle"
-                            android:fontFamily="@font/mlight"
-                            android:textStyle="bold"/>
-                        <ImageView
-                            android:id="@+id/btn_share"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            app:srcCompat="@drawable/ic_share" />
-                    </RelativeLayout>
-                    <TextView
-                        android:id="@+id/tv_diskon_P"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Rp.0"
-                        android:textColor="@color/colorGrey"
-                        android:textSize="@dimen/txtNormal"
-                        android:fontFamily="@font/mlight"
-                        android:textStyle="bold"
-                        android:visibility="invisible" />
-                    <TextView
-                        android:id="@+id/tv_harga"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Rp.0"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/txtNormal"
-                        android:fontFamily="@font/mmedium"
-                        android:textStyle="bold" />
+                        android:layout_height="@dimen/_250sdp"
+                        android:src="@color/color_300" />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/tv_nama"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_toStartOf="@+id/btn_share"
+                                android:ellipsize="end"
+                                android:maxLines="2"
+                                android:text="Nama Produk"
+                                android:textSize="@dimen/_15ssp"
+                                android:fontFamily="@font/mmedium"/>
+                            <ImageView
+                                android:id="@+id/btn_share"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                app:srcCompat="@drawable/ic_share" />
+                        </RelativeLayout>
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
                             android:orientation="vertical">
-                            <TextView
+                            <LinearLayout
+                                android:visibility="gone"
+                                android:id="@+id/ly_diskon"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="SKU"
-                                android:textColor="@color/colorBlack"
-                                android:textSize="@dimen/txtNormal"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:backgroundTint="@color/colorPrimaryVariant"
+                                    app:cardElevation="0dp">
+                                    <TextView
+                                        android:id="@+id/tv_persen"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginHorizontal="@dimen/_3sdp"
+                                        android:layout_marginVertical="@dimen/_3sdp"
+                                        android:text="10%"
+                                        android:fontFamily="@font/mmedium"
+                                        android:textColor="@color/colorWhite"
+                                        android:textSize="@dimen/_10sdp"
+                                        android:textStyle="bold" />
+                                </com.google.android.material.card.MaterialCardView>
+                                <TextView
+                                    android:id="@+id/tv_diskon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/mmedium"
+                                    android:layout_marginStart="@dimen/_5sdp"
+                                    android:text="Rp.10.000"
+                                    android:textSize="@dimen/_10sdp" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/ly_promo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical">
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:backgroundTint="@color/colorWhite"
+                                    app:cardElevation="0dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginVertical="@dimen/_3sdp"
+                                        android:fontFamily="@font/mmedium"
+                                        android:text="Produk murah!"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textSize="@dimen/_10sdp" />
+                                </com.google.android.material.card.MaterialCardView>
+                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/tv_harga_produk"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="@dimen/_3sdp"
+                                android:text="Rp 10.000"
                                 android:fontFamily="@font/mmedium"
-                                android:textStyle="bold"/>
-                            <TextView
-                                android:id="@+id/tv_sku"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="L99ASD844"
                                 android:textColor="@color/colorBlack"
-                                android:textSize="@dimen/txtNormal"
-                                android:fontFamily="@font/mlight"
+                                android:textSize="@dimen/_12ssp"
                                 android:textStyle="bold" />
                         </LinearLayout>
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_marginTop="@dimen/_10sdp"
                             android:orientation="horizontal">
-                            <View
-                                android:layout_width="1dp"
-                                android:layout_height="55dp"
-                                android:background="@color/colorPremium" />
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginStart="5dp"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Berat"
-                                    android:textColor="@color/colorBlack"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:fontFamily="@font/mmedium"
-                                    android:textStyle="bold" />
-                                <TextView
-                                    android:id="@+id/tv_berat"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="0.2kg"
-                                    android:textColor="@color/colorBlack"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:fontFamily="@font/mlight"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="horizontal">
-                            <View
-                                android:layout_width="1dp"
-                                android:layout_height="55dp"
-                                android:background="@color/colorPremium" />
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="5dp"
-                                android:orientation="vertical">
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Stok"
-                                    android:textColor="@color/colorBlack"
-                                    android:textSize="@dimen/txtNormal"
+                                    android:text="SKU"
+                                    android:textSize="@dimen/_12ssp"
                                     android:fontFamily="@font/mmedium"
                                     android:textStyle="bold"/>
                                 <TextView
-                                    android:id="@+id/tv_stok"
+                                    android:id="@+id/tv_sku"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="0"
-                                    android:textColor="@color/colorBlack"
-                                    android:textSize="@dimen/txtNormal"
-                                    android:fontFamily="@font/mlight"
-                                    android:textStyle="bold" />
+                                    android:text="L99ASD844"
+                                    android:textSize="@dimen/_11ssp"
+                                    android:fontFamily="@font/mmedium" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+                                <View
+                                    android:layout_width="@dimen/_1sdp"
+                                    android:layout_height="@dimen/_50sdp"
+                                    android:background="@color/color_100" />
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="@dimen/_2sdp"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Berat"
+                                        android:textSize="@dimen/_12ssp"
+                                        android:fontFamily="@font/mmedium"
+                                        android:textStyle="bold" />
+                                    <TextView
+                                        android:id="@+id/tv_berat"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="0.2kg"
+                                        android:textSize="@dimen/_11ssp"
+                                        android:fontFamily="@font/mmedium" />
+                                </LinearLayout>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+                                <View
+                                    android:layout_width="@dimen/_1sdp"
+                                    android:layout_height="@dimen/_50sdp"
+                                    android:background="@color/color_100" />
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="@dimen/_2sdp"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Stok"
+                                        android:textSize="@dimen/_12ssp"
+                                        android:fontFamily="@font/mmedium"
+                                        android:textStyle="bold"/>
+                                    <TextView
+                                        android:id="@+id/tv_stok"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        android:textSize="@dimen/_11ssp"
+                                        android:fontFamily="@font/mlight"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
                             </LinearLayout>
                         </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:padding="@dimen/_10sdp"
+                            android:text="Pembelian dalam jumlah besar hubungi"
+                            android:textSize="@dimen/_11ssp"
+                            android:fontFamily="@font/mmedium"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:padding="@dimen/_10sdp"
+                            android:text="pabrikmarawis@gmail.com"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/_11ssp"
+                            android:fontFamily="@font/mmedium"
+                            android:textStyle="bold"/>
                     </LinearLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_5sdp"
+                        android:background="@color/colorWhite"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="30dp"
-                        android:text="Pembelian dalam jumlah besar hubungi"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Overview"
                         android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/txtNormal"
-                        android:fontFamily="@font/mlight"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="10dp"
-                        android:text="pabrikmarawis@gmail.com"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/txtNormal"
-                        android:fontFamily="@font/mlight"
-                        android:textStyle="bold"/>
-                </LinearLayout>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp"
-                    android:background="#F8F8F8"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:text="Overview"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/txtNormal"
-                    android:fontFamily="@font/mmedium"
-                    android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/tv_deskripsi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="15dp"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/txtNormal"
-                    android:fontFamily="@font/mlight"
-                    android:textStyle="bold" />
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp"
-                    android:background="#F8F8F8"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorWhite"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="15dp"
-                        android:text="Produk Terkait"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/txtNormal"
+                        android:textSize="@dimen/_12ssp"
                         android:fontFamily="@font/mmedium"
                         android:textStyle="bold" />
-                    <LinearLayout
-                        android:layout_marginTop="-10dp"
-                        android:orientation="vertical"
+                    <TextView
+                        android:id="@+id/tv_deskripsi"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/rv_produkTerkait"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:textSize="@dimen/_11ssp"
+                        android:fontFamily="@font/mmedium" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_10sdp"
+                        android:background="@color/colorWhite"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:orientation="vertical">
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="15dp" />
+                            android:padding="@dimen/_10sdp"
+                            android:text="Produk Terkait"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_12ssp"
+                            android:fontFamily="@font/mmedium"
+                            android:textStyle="bold" />
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rv_produkTerkait"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                                app:spanCount="1"
+                                tools:itemCount="6"
+                                tools:listitem="@layout/item_produk"/>
+                        </LinearLayout>
                     </LinearLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:background="#F8F8F8"/>
                 </LinearLayout>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp"
-                    android:background="#F8F8F8"/>
-            </LinearLayout>
-        </ScrollView>
+            </androidx.core.widget.NestedScrollView>
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
         <LinearLayout
             android:id="@+id/div_footer"
@@ -265,8 +304,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:orientation="horizontal"
-            android:paddingHorizontal="15dp"
-            android:paddingVertical="10dp">
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingVertical="@dimen/_10sdp">
             <RelativeLayout
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
@@ -279,7 +318,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_margin="@dimen/_8sdp"
                     app:srcCompat="@drawable/ic_baseline_favorite" />
             </RelativeLayout>
             <RelativeLayout
@@ -289,8 +328,8 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
                 android:background="@drawable/bg_btn_keranjang2"
                 android:focusable="true">
                 <TextView
@@ -299,9 +338,8 @@
                     android:layout_centerInParent="true"
                     android:text="+ Keranjang"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/txtNormal"
-                    android:fontFamily="@font/mmedium"
-                    android:textStyle="bold" />
+                    android:textSize="@dimen/_13ssp"
+                    android:fontFamily="@font/mmedium"/>
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/btn_beli"
@@ -318,9 +356,8 @@
                     android:layout_centerInParent="true"
                     android:text="Beli"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/txtNormal"
-                    android:fontFamily="@font/mmedium"
-                    android:textStyle="bold" />
+                    android:textSize="@dimen/_13ssp"
+                    android:fontFamily="@font/mmedium" />
             </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>

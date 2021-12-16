@@ -17,20 +17,15 @@ import com.example.marawisstore.R
 import com.example.marawisstore.activity.AllProdukLainActivity
 import com.example.marawisstore.activity.AllProdukTerbaruActivity
 import com.example.marawisstore.activity.FavoritProdukActivity
-import com.example.marawisstore.adapter.AdapterProdukLainnya
-import com.example.marawisstore.adapter.AdapterProdukTerbaru
-import com.example.marawisstore.adapter.AdapterPromo
+import com.example.marawisstore.adapter.AdapterProduk
 import com.example.marawisstore.adapter.AdapterSlider
 import com.example.marawisstore.app.ApiConfig
 import com.example.marawisstore.model.Produk
 import com.example.marawisstore.model.ResponModel
 import com.example.marawisstore.room.MyDatabaseFavorit
-import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.item_produk_terbaru.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
 
 class HomeFragment : Fragment() {
 
@@ -43,14 +38,17 @@ class HomeFragment : Fragment() {
     lateinit var btnFavorit: Button
     lateinit var myDbFav: MyDatabaseFavorit
 
+    private var listProduk: ArrayList<Produk> = ArrayList()
+    private var listProdukLainnya: ArrayList<Produk> = ArrayList()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
-
         myDbFav = MyDatabaseFavorit.getInstance(requireActivity())!!
 
         init(view)
+        displayProduk()
         getProdukTerbaru()
         getProdukLainnya()
         mainButton()
@@ -62,7 +60,7 @@ class HomeFragment : Fragment() {
         swRefresh.setOnRefreshListener {
             getProdukTerbaru()
             getProdukLainnya()
-            swRefresh.isRefreshing = false
+            mainButton()
         }
     }
 
@@ -92,35 +90,35 @@ class HomeFragment : Fragment() {
         val layoutManager2 = LinearLayoutManager(activity)
         layoutManager2.orientation = LinearLayoutManager.HORIZONTAL
 
-        rvProduk.adapter = AdapterProdukTerbaru(requireActivity(), listProduk)
+        rvProduk.adapter = AdapterProduk(requireActivity(), listProduk)
         rvProduk.layoutManager = layoutManager
 
-        rvProdukLainnya.adapter = AdapterProdukLainnya(requireActivity(), listProdukLainnya)
+        rvProdukLainnya.adapter = AdapterProduk(requireActivity(), listProdukLainnya)
         rvProdukLainnya.layoutManager = layoutManager2
     }
-
-    private var listProduk: ArrayList<Produk> = ArrayList()
-    private var listProdukLainnya: ArrayList<Produk> = ArrayList()
 
     fun getProdukTerbaru() {
         ApiConfig.instanceRetrofit.getProductTerbaru().enqueue(object : Callback<ResponModel> {
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
                 //Handle ketika gagal
-                pb.visibility = View.GONE
-                Toast.makeText(activity,"Error:"+t.message, Toast.LENGTH_SHORT).show()
+                if (swRefresh.isRefreshing){
+                    swRefresh.isRefreshing = false
+                    Toast.makeText(activity,"Error:"+t.message, Toast.LENGTH_SHORT).show()
+                }
             }
 
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+                if (swRefresh.isRefreshing){
+                    swRefresh.isRefreshing = false
+                }
                 if (response.isSuccessful) {
-                    pb.visibility = View.GONE
                     val res = response.body()!!
                     if (res.success == 1) {
                         listProduk = res.produk
                         displayProduk()
-                    }else{
-                        pb.visibility = View.VISIBLE
                     }
                 }else {
+                    swRefresh.isRefreshing = true
                     Toast.makeText(activity, response.message(), Toast.LENGTH_SHORT).show()
                 }
             }
@@ -133,28 +131,26 @@ class HomeFragment : Fragment() {
         ApiConfig.instanceRetrofit.getProductLainnya().enqueue(object : Callback<ResponModel> {
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
                 //Handle ketika gagal
-                pbProduk.visibility = View.GONE
-                Toast.makeText(activity,"Error:"+t.message, Toast.LENGTH_SHORT).show()
-
+                if (swRefresh.isRefreshing){
+                    swRefresh.isRefreshing = false
+                    Toast.makeText(activity,"Error:"+t.message, Toast.LENGTH_SHORT).show()
+                }
             }
-
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+                if (swRefresh.isRefreshing){
+                    swRefresh.isRefreshing = false
+                }
                 if (response.isSuccessful) {
-                    pbProduk.visibility = View.GONE
                     val res = response.body()!!
                     if (res.success == 1) {
                         listProdukLainnya = res.produk
                         displayProduk()
-                    }else{
-                        pb.visibility = View.VISIBLE
                     }
                 }else {
                     Toast.makeText(activity, response.message(), Toast.LENGTH_SHORT).show()
                 }
             }
-
         })
-
     }
 
     fun init(view: View) {

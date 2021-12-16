@@ -70,7 +70,4 @@ class RiwayatActivity : AppCompatActivity() {
         return super.onSupportNavigateUp()
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
 }

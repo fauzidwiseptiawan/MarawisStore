@@ -20,8 +20,8 @@
             android:id="@+id/rv_ProdukFav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_10sdp" />
         <LinearLayout
             android:id="@+id/empty_favorit"
             android:layout_width="match_parent"
@@ -29,36 +29,35 @@
             android:orientation="vertical"
             android:gravity="center">
             <ImageView
-                android:layout_marginTop="20dp"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_150sdp"
                 android:src="@drawable/wishlist"/>
             <TextView
-                android:padding="5dp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:padding="@dimen/_5sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:text="Tambahkan item yang anda minati ke dalam Wishlist. Untuk menambahkan, klik Add to Wishlist di halaman item"
-                android:textSize="@dimen/txtNormal"
-                android:fontFamily="@font/mlight"
-                android:textStyle="bold"
-                android:textColor="@color/colorBlack"/>
+                android:textSize="@dimen/_11ssp"
+                android:fontFamily="@font/mmedium"/>
             <RelativeLayout
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:id="@+id/btn_belanja"
-                android:layout_width="150dp"
-                android:layout_marginTop="20dp"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_btn_daftar">
+                android:layout_width="@dimen/_120sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:background="@drawable/bg_btn_daftar"
+                android:focusable="true">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="Beli Sekarang"
-                    android:textSize="@dimen/txtNormal"
-                    android:fontFamily="@font/mlight"
-                    android:textStyle="bold"
+                    android:textSize="@dimen/_13ssp"
+                    android:fontFamily="@font/mmedium"
                     android:textColor="@color/colorPrimary"/>
             </RelativeLayout>
         </LinearLayout>

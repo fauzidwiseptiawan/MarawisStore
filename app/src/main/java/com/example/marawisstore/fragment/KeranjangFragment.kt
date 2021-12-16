@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
@@ -44,7 +45,7 @@ class KeranjangFragment : Fragment() {
         init(view)
         mainButton()
         refreshApp()
-
+        emptyKeranjang()
         return view
     }
 
@@ -65,6 +66,7 @@ class KeranjangFragment : Fragment() {
         adapter = AdapterKeranjang(requireActivity(), listProduk, object : AdapterKeranjang.Listeners{
             override fun onUpdate() {
                 hitungTotal()
+                emptyKeranjang()
             }
 
             override fun onDelete(position: Int) {
@@ -98,27 +100,13 @@ class KeranjangFragment : Fragment() {
         tvTotal.text = com.example.marawisstore.helper.Helper().gantiRupiah(totalHarga)
     }
 
-    private fun showFooter(){
-        val listProduks = myDb.daoKeranjang().getAll() as ArrayList
-
-        for (produk in listProduks)
-        if (produk.selected){
-            rvProduk.visibility  = View.VISIBLE
-            divFooter.visibility = View.VISIBLE
-            btnDelete.visibility = View.VISIBLE
-            divHeader.visibility = View.VISIBLE
-        }else{
-            btnDelete.visibility = View.GONE
-            divHeader.visibility = View.GONE
-            divFooter.visibility = View.GONE
-        }
-    }
-
-    private fun EmptyKeranjang(){
+    private fun emptyKeranjang(){
         val listProduks = myDb.daoKeranjang().getAll() as ArrayList
 
         if (listProduks.isEmpty()){
             emptyKeranjang.visibility = View.VISIBLE
+            divHeader.visibility = View.GONE
+            divFooter.visibility = View.GONE
         } else {
             emptyKeranjang.visibility = View.GONE
         }
@@ -147,12 +135,12 @@ class KeranjangFragment : Fragment() {
             }
         }
 
-        btnDelete.setOnClickListener {
-            val lisDelete = ArrayList<Produk>()
+        tvDelete.setOnClickListener {
+            val listDelete = ArrayList<Produk>()
             for (p in listProduk){
-                if (p.selected) lisDelete.add(p)
+                if (p.selected) listDelete.add(p)
             }
-            delete(lisDelete)
+            delete(listDelete)
         }
 
         btnBelanja.setOnClickListener {
@@ -181,19 +169,19 @@ class KeranjangFragment : Fragment() {
                 })
     }
 
-    lateinit var btnDelete: ImageView
+    lateinit var tvDelete: TextView
     lateinit var rvProduk: RecyclerView
     lateinit var tvTotal: TextView
-    lateinit var btnBayar: TextView
+    lateinit var btnBayar: RelativeLayout
     lateinit var btnBelanja: RelativeLayout
     lateinit var emptyKeranjang: LinearLayout
     lateinit var divHeader: RelativeLayout
-    lateinit var divFooter: RelativeLayout
+    lateinit var divFooter: LinearLayout
     lateinit var swRefresh: SwipeRefreshLayout
     lateinit var cbAll: CheckBox
 
     private fun init(view: View){
-        btnDelete = view.findViewById(R.id.btn_delete)
+        tvDelete = view.findViewById(R.id.tv_delete)
         btnBelanja = view.findViewById(R.id.btn_belanja)
         rvProduk = view.findViewById(R.id.rv_produk)
         tvTotal = view.findViewById(R.id.tv_total)
@@ -207,9 +195,9 @@ class KeranjangFragment : Fragment() {
 
     override fun onResume() {
         hitungTotal()
-        showFooter()
-        EmptyKeranjang()
+        mainButton()
         displayProduk()
+        emptyKeranjang()
         super.onResume()
     }
 
