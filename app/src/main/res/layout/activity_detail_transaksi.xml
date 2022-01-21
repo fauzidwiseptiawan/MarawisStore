@@ -298,7 +298,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentEnd="true"
-                                    android:text="Rp 15.000"
+                                    android:text="Rp 10.000"
                                     android:fontFamily="@font/mmedium"
                                     android:textSize="@dimen/_11ssp" />
                             </RelativeLayout>
