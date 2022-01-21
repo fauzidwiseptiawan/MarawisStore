@@ -6,34 +6,13 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:orientation="vertical">
-    <androidx.appcompat.widget.Toolbar
-        android:background="@color/colorWhite"
+    <include
+        layout="@layout/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_marginBottom="@dimen/_5sdp"
-            android:layout_marginLeft="@dimen/_15sdp"
-            android:layout_marginRight="@dimen/_15sdp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_gravity="center"
-                android:textColor="@color/colorBlack"
-                android:layout_weight="1"
-                android:textAlignment="center"
-                android:textSize="@dimen/_13ssp"
-                android:textStyle="bold"
-                android:fontFamily="@font/mmedium"
-                android:text="Keranjang"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </androidx.appcompat.widget.Toolbar>
+        android:layout_height="wrap_content" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_footer">
+        android:layout_height="wrap_content">
         <RelativeLayout
             android:id="@+id/div_header"
             android:layout_width="match_parent"
@@ -43,7 +22,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             android:layout_height="wrap_content">
             <CheckBox
-                android:id="@+id/cb_all"
+                android:id="@+id/cb_allKeranjang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_11ssp"
@@ -61,6 +40,10 @@
                 android:text="Hapus"/>
         </RelativeLayout>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/color_300" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -78,7 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_produk"
+                        android:id="@+id/rv_produk_keranjang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:spanCount="1"
@@ -186,6 +169,7 @@
                 </LinearLayout>
             </RelativeLayout>
             <RelativeLayout
+                android:id="@+id/ry_total_dummy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <LinearLayout
@@ -221,6 +205,7 @@
                 </LinearLayout>
             </RelativeLayout>
             <LinearLayout
+                android:id="@+id/ly_bayar_dummy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"

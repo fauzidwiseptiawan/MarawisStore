@@ -26,6 +26,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_detail_produk.*
 import kotlinx.android.synthetic.main.activity_detail_produk.btn_favorit
 import kotlinx.android.synthetic.main.activity_detail_produk.tv_nama
+import kotlinx.android.synthetic.main.toolbar_baru.*
 import kotlinx.android.synthetic.main.toolbar_costume.*
 import kotlinx.android.synthetic.main.toolbar_costume.btn_toKeranjang
 import kotlinx.android.synthetic.main.toolbar_costume.div_angka
@@ -65,7 +66,6 @@ class DetailProdukActivity : AppCompatActivity() {
     var totalBerat = 0
     private fun hitungTotal(){
         val listProduk = myDb.daoKeranjang().getProduk(produk.kode_produk)
-
             if(listProduk == null){
                 val berat = Integer.valueOf(produk.berat)
                 totalBerat += (berat * produk.jumlah)
@@ -101,7 +101,7 @@ class DetailProdukActivity : AppCompatActivity() {
         }
 
         btn_toKeranjang.setOnClickListener {
-            startActivity(Intent(this,KeranjangProdukActivity::class.java))
+            startActivity(Intent(this,KeranjangActivity::class.java))
         }
     }
 
@@ -112,7 +112,6 @@ class DetailProdukActivity : AppCompatActivity() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
                 checkKeranjang()
-                Log.d("respons", "data inserted")
                 Toast.makeText(this,"Yay! Barang berhasil ditambahkan ke keranjang",Toast.LENGTH_SHORT).show()
             })
     }
@@ -123,7 +122,6 @@ class DetailProdukActivity : AppCompatActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
                     checkKeranjang()
-                    Log.d("respons", "data inserted")
                     Toast.makeText(this,"Yay! Barang berhasil diupdate ke keranjang",Toast.LENGTH_SHORT).show()
                 })
     }
@@ -134,7 +132,6 @@ class DetailProdukActivity : AppCompatActivity() {
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
-                    Log.d("respons", "data inserted")
                     Toast.makeText(this,"Yay! Barang berhasil ditambahkan ke wishlist",Toast.LENGTH_SHORT).show()
                 })
     }
@@ -144,7 +141,6 @@ class DetailProdukActivity : AppCompatActivity() {
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
-                    Log.d("respons", "data inserted")
                     Toast.makeText(this,"Yay! Barang berhasil ditambahkan ke wishlist",Toast.LENGTH_SHORT).show()
                 })
     }
@@ -155,7 +151,7 @@ class DetailProdukActivity : AppCompatActivity() {
 
         if(dataKeranjang.isNotEmpty()){
             div_angka.visibility = View.VISIBLE
-            tv_angkaa.text = dataKeranjang.size.toString()
+            tv_angka.text = dataKeranjang.size.toString()
         } else{
             div_angka.visibility = View.GONE
         }
@@ -196,14 +192,8 @@ class DetailProdukActivity : AppCompatActivity() {
                 .into(image)
 
         //Set Toolbar
-        Helper().setToolbarCostume(this, toolbar_costume, produk.nama_produk)
+        Helper().setToolbar(this, toolbar_costume,produk.nama_produk)
     }
-
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return super.onSupportNavigateUp()
-    }
-
 
     private fun displayProduk(){
         val layoutManager = LinearLayoutManager(this)
@@ -228,9 +218,7 @@ class DetailProdukActivity : AppCompatActivity() {
                     displayProduk()
                 }
             }
-
         })
-
     }
 
     override fun onResume() {
@@ -239,5 +227,11 @@ class DetailProdukActivity : AppCompatActivity() {
         getInfo()
         super.onResume()
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
+    }
+
 
 }

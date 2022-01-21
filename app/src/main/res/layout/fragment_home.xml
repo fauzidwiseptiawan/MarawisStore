@@ -67,7 +67,7 @@
                         android:overScrollMode="never"
                         android:clipToPadding="false"
                         android:layout_width="match_parent"
-                        android:layout_height="130dp" />
+                        android:layout_height="@dimen/_105sdp" />
                 </LinearLayout>
                 <!--Produk Lainnya-->
                 <LinearLayout
@@ -80,7 +80,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/_10sdp"
-                        android:paddingHorizontal="@dimen/_10sdp"
                         android:paddingVertical="@dimen/_10sdp">
                         <TextView
                             android:layout_width="wrap_content"
@@ -88,7 +87,7 @@
                             android:text="Produk terbaru"
                             android:fontFamily="@font/mmedium"
                             android:textColor="@color/colorBlack"
-                            android:textSize="@dimen/_15ssp"
+                            android:textSize="@dimen/_13ssp"
                             android:textStyle="bold" />
                         <TextView
                             android:id="@+id/tv_ProdukTerbaru"
@@ -99,28 +98,29 @@
                             android:text="Lihat Semua"
                             android:fontFamily="@font/mmedium"
                             android:textColor="@color/colorPrimary"
-                            android:textSize="@dimen/_12sdp" />
+                            android:textSize="@dimen/_11sdp" />
                     </RelativeLayout>
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <!--Card Produk Terbaru-->
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/rv_produk"
+                                android:clipToPadding="false"
+                                android:overScrollMode="never"
+                                android:foregroundGravity="center"
+                                android:paddingHorizontal="@dimen/_5sdp"
                                 android:orientation="horizontal"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_height="wrap_content"
                                 app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
                                 app:spanCount="1"
                                 tools:itemCount="6"
                                 tools:listitem="@layout/item_produk" />
                         </LinearLayout>
                 </LinearLayout>
-                <!--Produk Terbaru-->
+                <!--Produk Lainnya-->
                 <LinearLayout
-                    android:paddingBottom="15dp"
-                    android:background="@drawable/background"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -129,18 +129,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/_10sdp"
-                        android:paddingHorizontal="@dimen/_10sdp"
                         android:paddingVertical="@dimen/_10sdp">
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/mmedium"
                             android:text="Produk lainnya"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/_15ssp"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_13ssp"
                             android:textStyle="bold" />
-
                         <TextView
                             android:id="@+id/tv_ProdukLain"
                             android:layout_width="wrap_content"
@@ -149,24 +146,27 @@
                             android:layout_centerVertical="true"
                             android:text="Lihat Semua"
                             android:fontFamily="@font/mmedium"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/_12sdp" />
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_11sdp" />
                     </RelativeLayout>
-                    <!--Card Produk-->
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/rv_produk_lainnya"
-                                android:orientation="horizontal"
+                        <LinearLayout
+                                android:background="@drawable/background"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-                                app:spanCount="1"
-                                tools:itemCount="6"
-                                tools:listitem="@layout/item_produk" />
-                        </RelativeLayout>
+                                android:layout_height="wrap_content">
+                                <!--Card Produk-->
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rv_produk_lainnya"
+                                    android:clipToPadding="false"
+                                    android:overScrollMode="never"
+                                    android:foregroundGravity="center"
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                                    app:spanCount="1"
+                                    tools:itemCount="6"
+                                    tools:listitem="@layout/item_produk" />
+                            </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

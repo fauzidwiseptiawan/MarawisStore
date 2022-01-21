@@ -1,18 +1,15 @@
-package com.example.marawisstore.fragment
+package com.example.marawisstore.activity
 
-import android.annotation.SuppressLint
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.*
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.marawisstore.R
-import com.example.marawisstore.activity.*
 import com.example.marawisstore.adapter.AdapterKeranjang
 import com.example.marawisstore.helper.Helper
 import com.example.marawisstore.helper.SharedPref
@@ -23,42 +20,46 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_keranjang.*
 import kotlinx.android.synthetic.main.item_harga.*
+import kotlinx.android.synthetic.main.toolbar.*
 
-class KeranjangFragment : Fragment() {
+class KeranjangActivity : AppCompatActivity() {
 
+    lateinit var produk: Produk
+    lateinit var adapter : AdapterKeranjang
     lateinit var myDb: MyDatabase
     lateinit var s: SharedPref
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        val view: View = inflater.inflate(R.layout.fragment_keranjang,container,false)
-        init(view)
-        myDb = MyDatabase.getInstance(requireActivity())!!
-        s = SharedPref(requireActivity())
+    var listProduk = ArrayList<Produk>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_keranjang)
+        //Set Toolbar
+        Helper().setToolbarBaru(this, toolbar, "Keranjang")
+
+        myDb = MyDatabase.getInstance(this)!! // call database favorit
 
         mainButton()
         refreshApp()
-        return view
     }
 
     private fun refreshApp() {
-       swRefresh.setOnRefreshListener {
-           displayProduk()
-           hitungTotal()
-           selectProduct()
-           swRefresh.isRefreshing = false
-       }
+        swipeToRefresh.setOnRefreshListener {
+            displayProduk()
+            selectProduct()
+            hitungTotal()
+            swipeToRefresh.isRefreshing = false
+        }
     }
 
-    lateinit var adapter : AdapterKeranjang
-    var listProduk = ArrayList<Produk>()
     private fun displayProduk(){
         listProduk = myDb.daoKeranjang().getAll() as ArrayList
-        val layoutManager = LinearLayoutManager(activity)
+        val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
 
-        adapter = AdapterKeranjang(requireActivity(), listProduk, object : AdapterKeranjang.Listeners{
+        adapter = AdapterKeranjang(this, listProduk, object : AdapterKeranjang.Listeners{
             override fun onUpdate() {
                 hitungTotal()
                 selectProduct()
@@ -67,13 +68,12 @@ class KeranjangFragment : Fragment() {
             override fun onDelete(position: Int) {
                 listProduk.removeAt(position)
                 adapter.notifyDataSetChanged()
-                selectProduct()
                 hitungTotal()
+                selectProduct()
             }
         })
-
-        rvProduk.adapter = adapter
-        rvProduk.layoutManager = layoutManager
+        rv_produk_keranjang.adapter = adapter
+        rv_produk_keranjang.layoutManager = layoutManager
     }
 
     var hargaAsli = 0
@@ -82,18 +82,17 @@ class KeranjangFragment : Fragment() {
     var totalBerat = 0
 
     private fun hitungTotal(){
-        val listProduk = myDb.daoKeranjang().getAll() as ArrayList
-        var isSelectedAll = true
+        val listProduk =  myDb.daoKeranjang().getAll() as ArrayList
         totalHarga = 0
         totalDiskon = 0
-        totalBerat = 0
         hargaAsli = 0
+        var isSelectedAll = true
         if (listProduk.isEmpty()){
-            emptyKeranjang.visibility = View.VISIBLE
-            divHeader.visibility = View.GONE
-            divFooter.visibility = View.GONE
-        } else {
-            for (produk in listProduk){
+            empty_keranjang.visibility = View.VISIBLE
+            div_header.visibility = View.GONE
+            div_footer.visibility = View.GONE
+        }else{
+            for(produk in listProduk){
                 if(produk.selected){
                     val berat = Integer.valueOf(produk.berat)
                     totalBerat += (berat * produk.jumlah)
@@ -108,11 +107,8 @@ class KeranjangFragment : Fragment() {
                     isSelectedAll = false
                 }
             }
-            divHeader.visibility = View.VISIBLE
-            divFooter.visibility = View.VISIBLE
-            emptyKeranjang.visibility = View.GONE
-            cbAll.isChecked = isSelectedAll
-            tvTotal.text = Helper().gantiRupiah(totalHarga)
+            cb_allKeranjang.isChecked = isSelectedAll
+            tv_total.text = Helper().gantiRupiah(totalHarga)
         }
     }
 
@@ -123,43 +119,46 @@ class KeranjangFragment : Fragment() {
             if (p.selected) selectProduct = true
         }
         if (selectProduct){
-            lyBayar.visibility = View.VISIBLE
-            lyTotal.visibility = View.VISIBLE
-            btmHarga.visibility = View.VISIBLE
-            tvDelete.visibility = View.VISIBLE
+            ly_bayar.visibility = View.VISIBLE
+            ly_total.visibility = View.VISIBLE
+            btm_harga.visibility = View.VISIBLE
+            tv_delete.visibility = View.VISIBLE
         } else {
-            lyBayar.visibility = View.GONE
-            lyTotal.visibility = View.GONE
-            btmHarga.visibility = View.GONE
-            tvDelete.visibility = View.GONE
+            ly_bayar.visibility = View.GONE
+            ly_total.visibility = View.GONE
+            btm_harga.visibility = View.GONE
+            tv_delete.visibility = View.GONE
         }
     }
 
-    @SuppressLint("CutPasteId")
     private fun mainButton(){
-        btnBayar.setOnClickListener {
+        btn_toFavorit.setOnClickListener {
+            startActivity(Intent(this, FavoritProdukActivity::class.java))
+        }
+
+        btn_bayar.setOnClickListener {
             if (s.getStatusLogin()){
                 var isThereProduk = false
+
                 for (p in listProduk){
                     if (p.selected) isThereProduk = true
                 }
 
                 if (isThereProduk){
-                    val intent = Intent(activity,PengirimanActivity::class.java)
+                    val intent = Intent(this,PengirimanActivity::class.java)
                     intent.putExtra("totalBerat","" + totalBerat)
                     intent.putExtra("totalHarga","" + totalHarga)
                     intent.putExtra("totalDiskon","" + totalDiskon)
-                    intent.putExtra("hargaAsli","" + hargaAsli)
                     startActivity(intent)
                 } else {
-                    Toast.makeText(requireContext(),"Tidak ada produk yang terpilih", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"Tidak ada produk yang terpilih", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                startActivity(Intent(requireActivity(), MasukActivity::class.java))
+                startActivity(Intent(this, MasukActivity::class.java))
             }
         }
 
-        tvDelete.setOnClickListener {
+        tv_delete.setOnClickListener {
             var isSelectedAll = true
             val listDelete = ArrayList<Produk>()
             for (p in listProduk){
@@ -168,30 +167,25 @@ class KeranjangFragment : Fragment() {
                     isSelectedAll = false
                 }
             }
-            cbAll.isChecked = isSelectedAll
+            cb_allKeranjang.isChecked = isSelectedAll
             delete(listDelete)
         }
 
-        btnBelanja.setOnClickListener {
-            startActivity(Intent(activity, AllProdukLainActivity::class.java))
-        }
-
-
-        cbAll.setOnClickListener {
+        cb_allKeranjang.setOnClickListener {
             for (i in listProduk.indices){
                 val produk = listProduk[i]
-                produk.selected = cbAll.isChecked
+                produk.selected = cb_allKeranjang.isChecked
                 listProduk[i] = produk
             }
             adapter.notifyDataSetChanged()
         }
 
-        btmHarga.setOnClickListener {
+        btm_harga.setOnClickListener {
             var isThereProduk = false
             val bottomDialog = BottomSheetDialog(
-                    requireActivity(), R.style.BottomSheetDialogtheme
+                    this, R.style.BottomSheetDialogtheme
             )
-            val bottomSheetView = LayoutInflater.from(requireActivity().applicationContext).inflate(
+            val bottomSheetView = LayoutInflater.from(this.applicationContext).inflate(
                     R.layout.item_harga,
                     bottom_harga
             )
@@ -206,7 +200,6 @@ class KeranjangFragment : Fragment() {
                     bottomSheetView.findViewById<LinearLayout>(R.id.ly_diskon).visibility = View.GONE
                 }
                 bottomSheetView.findViewById<TextView>(R.id.tv_bayar).text = Helper().gantiRupiah(totalHarga)
-
                 bottomDialog.setContentView(bottomSheetView)
                 bottomDialog.show()
             }
@@ -224,36 +217,6 @@ class KeranjangFragment : Fragment() {
                 })
     }
 
-    lateinit var emptyKeranjang: LinearLayout
-    lateinit var lyBayar: LinearLayout
-    lateinit var lyTotal: LinearLayout
-    lateinit var btmHarga: RelativeLayout
-    lateinit var btnBayar: RelativeLayout
-    lateinit var btnBelanja: RelativeLayout
-    lateinit var divHeader: RelativeLayout
-    lateinit var divFooter: RelativeLayout
-    lateinit var rvProduk: RecyclerView
-    lateinit var tvTotal: TextView
-    lateinit var tvDelete: TextView
-    lateinit var swRefresh: SwipeRefreshLayout
-    lateinit var cbAll: CheckBox
-
-    private fun init(view: View){
-        lyBayar = view.findViewById(R.id.ly_bayar)
-        lyTotal = view.findViewById(R.id.ly_total)
-        tvDelete = view.findViewById(R.id.tv_delete)
-        btmHarga = view.findViewById(R.id.btm_harga)
-        btnBelanja = view.findViewById(R.id.btn_belanja)
-        rvProduk = view.findViewById(R.id.rv_produk)
-        tvTotal = view.findViewById(R.id.tv_total)
-        swRefresh = view.findViewById(R.id.swipeToRefresh)
-        btnBayar = view.findViewById(R.id.btn_bayar)
-        divFooter = view.findViewById(R.id.div_footer)
-        divHeader = view.findViewById(R.id.div_header)
-        emptyKeranjang = view.findViewById(R.id.empty_keranjang)
-        cbAll = view.findViewById(R.id.cb_all)
-    }
-
     override fun onResume() {
         selectProduct()
         hitungTotal()
@@ -261,4 +224,8 @@ class KeranjangFragment : Fragment() {
         super.onResume()
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
+    }
 }

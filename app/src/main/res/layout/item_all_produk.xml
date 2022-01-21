@@ -8,6 +8,7 @@
     android:layout_marginHorizontal="@dimen/_5sdp"
     android:layout_marginTop="@dimen/_10sdp"
     android:orientation="vertical"
+    app:cardElevation="@dimen/_3sdp"
     app:cardCornerRadius="@dimen/_8sdp">
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,12 +36,12 @@
             android:padding="@dimen/_5sdp">
             <TextView
                 android:id="@+id/tv_nama_produk"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/_3sdp"
                 android:ellipsize="end"
                 android:fontFamily="@font/mmedium"
-                android:maxLines="2"
+                android:maxLines="4"
                 android:text="Nama produk"
                 android:textSize="@dimen/_12ssp" />
             <LinearLayout
@@ -73,7 +74,7 @@
                     android:textColor="@color/color_600"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:text="Rp.10.000"
-                    android:textSize="@dimen/_10sdp" />
+                    android:textSize="@dimen/_9sdp" />
             </LinearLayout>
             <LinearLayout
                 android:visibility="visible"

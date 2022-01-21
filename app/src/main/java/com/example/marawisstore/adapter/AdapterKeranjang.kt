@@ -1,13 +1,11 @@
 package com.example.marawisstore.adapter
 
 import android.app.Activity
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marawisstore.R
@@ -29,11 +27,12 @@ class AdapterKeranjang(var activity: Activity, var data: ArrayList<Produk>, var 
         val tvHarga = view.findViewById<TextView>(R.id.tv_harga)
         val imgProduk = view.findViewById<ImageView>(R.id.img_produk)
         val layout = view.findViewById<CardView>(R.id.layout)
-
+        val lyDiskon = view.findViewById<LinearLayout>(R.id.ly_diskon)
+        val tvDiskon = view.findViewById<TextView>(R.id.tv_diskon)
+        val tvPersen = view.findViewById<TextView>(R.id.tv_persen)
         val btnTambah = view.findViewById<ImageView>(R.id.btn_tambah)
         val btnKurang = view.findViewById<ImageView>(R.id.btn_kurang)
         val btnDelete = view.findViewById<ImageView>(R.id.btn_delete)
-
         val checkBox = view.findViewById<CheckBox>(R.id.checkBox)
         val tvJumlah = view.findViewById<TextView>(R.id.tv_jumlah)
     }
@@ -51,9 +50,18 @@ class AdapterKeranjang(var activity: Activity, var data: ArrayList<Produk>, var 
 
         val produk = data[position]
         val harga = Integer.valueOf(produk.harga)
+        val hargaCoret = (harga - ((produk.diskon.toDouble() / 100) * harga).toInt())
+        val diskon = Integer.valueOf(produk.diskon)
 
+        if (produk.diskon != 0){
+            holder.lyDiskon.visibility = View.VISIBLE
+            holder.tvDiskon.text = Helper().gantiRupiah(harga)
+            holder.tvDiskon.paintFlags = holder.tvDiskon.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+        }
+
+        holder.tvPersen.text = "${diskon}%"
         holder.tvNama.text = produk.nama_produk
-        holder.tvHarga.text = Helper().gantiRupiah(harga * produk.jumlah)
+        holder.tvHarga.text = Helper().gantiRupiah(hargaCoret * produk.jumlah)
 
         var jumlah = data[position].jumlah
         holder.tvJumlah.text = jumlah.toString()
@@ -64,7 +72,7 @@ class AdapterKeranjang(var activity: Activity, var data: ArrayList<Produk>, var 
             update(produk)
         }
 
-        var gambar = Config.produkUrl + data[position].image
+        val gambar = Config.produkUrl + data[position].image
         Picasso.get()
             .load(gambar)
             .placeholder(R.color.color_300)
@@ -78,7 +86,7 @@ class AdapterKeranjang(var activity: Activity, var data: ArrayList<Produk>, var 
             update(produk)
 
             holder.tvJumlah.text = jumlah.toString()
-            holder.tvHarga.text = Helper().gantiRupiah(harga * jumlah)
+            holder.tvHarga.text = Helper().gantiRupiah(hargaCoret * jumlah)
         }
 
         holder.btnKurang.setOnClickListener {
@@ -90,15 +98,12 @@ class AdapterKeranjang(var activity: Activity, var data: ArrayList<Produk>, var 
             update(produk)
 
             holder.tvJumlah.text = jumlah.toString()
-            holder.tvHarga.text = Helper().gantiRupiah(harga * jumlah)
+            holder.tvHarga.text = Helper().gantiRupiah(hargaCoret * jumlah)
         }
 
         holder.btnDelete.setOnClickListener {
-            jumlah++
-
-            produk.jumlah = jumlah
-
             delete(produk)
+            update(produk)
             listener.onDelete(position)
             Toast.makeText(activity,"Barang berhasil dihapus dari keranjang", Toast.LENGTH_SHORT).show()
         }

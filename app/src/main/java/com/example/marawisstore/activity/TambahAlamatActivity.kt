@@ -165,7 +165,6 @@ class TambahAlamatActivity : AppCompatActivity() {
                     val adapter = ArrayAdapter<Any>(this@TambahAlamatActivity, R.layout.item_dropdown, arryString.toTypedArray())
                     spn_kota.setAdapter(adapter)
                     spn_kota.setOnItemClickListener { parent, view, position, id ->
-
                         if(position != 0) {
                             kota = listArray[position - 0]
                             val kodePos = kota.postal_code

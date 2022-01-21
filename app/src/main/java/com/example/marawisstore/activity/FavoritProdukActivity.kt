@@ -48,7 +48,7 @@ class FavoritProdukActivity : AppCompatActivity() {
 
         if(dataKeranjang.isNotEmpty()){
             div_angka.visibility = View.VISIBLE
-            tv_angkaa.text = dataKeranjang.size.toString()
+            tv_angka.text = dataKeranjang.size.toString()
         } else{
             rv_ProdukFav.visibility = View.VISIBLE
             div_angka.visibility = View.GONE
@@ -67,7 +67,7 @@ class FavoritProdukActivity : AppCompatActivity() {
 
     private fun mainButton(){
         btn_toKeranjang.setOnClickListener {
-            startActivity(Intent(this@FavoritProdukActivity, KeranjangProdukActivity::class.java))
+            startActivity(Intent(this@FavoritProdukActivity, KeranjangActivity::class.java))
         }
     }
 

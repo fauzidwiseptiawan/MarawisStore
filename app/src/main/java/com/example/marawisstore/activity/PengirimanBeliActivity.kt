@@ -10,9 +10,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.marawisstore.R
-import com.example.marawisstore.adapter.AdapterKeranjang
 import com.example.marawisstore.adapter.AdapterKurir
-import com.example.marawisstore.adapter.AdapterPengiriman
 import com.example.marawisstore.app.ApiConfigAlamat
 import com.example.marawisstore.helper.Helper
 import com.example.marawisstore.model.Produk
@@ -20,22 +18,17 @@ import com.example.marawisstore.model.rajaongkir.Costs
 import com.example.marawisstore.model.rajaongkir.ResponOngkir
 import com.example.marawisstore.room.MyDatabase
 import com.example.marawisstore.util.ApiKey
-import com.google.gson.Gson
-import kotlinx.android.synthetic.main.activity_pengiriman.*
 import kotlinx.android.synthetic.main.activity_pengiriman.btn_tambah_alamat
 import kotlinx.android.synthetic.main.activity_pengiriman.button
 import kotlinx.android.synthetic.main.activity_pengiriman.div_alamat
 import kotlinx.android.synthetic.main.activity_pengiriman.div_kosong
-import kotlinx.android.synthetic.main.activity_pengiriman.div_metode
 import kotlinx.android.synthetic.main.activity_pengiriman.div_metodePengiriman
 import kotlinx.android.synthetic.main.activity_pengiriman.rv_metode
-import kotlinx.android.synthetic.main.activity_pengiriman.spn_kurir
 import kotlinx.android.synthetic.main.activity_pengiriman.tv_alamat
 import kotlinx.android.synthetic.main.activity_pengiriman.tv_nama
 import kotlinx.android.synthetic.main.activity_pengiriman.tv_ongkir
 import kotlinx.android.synthetic.main.activity_pengiriman.tv_telpon
 import kotlinx.android.synthetic.main.activity_pengiriman.tv_total
-import kotlinx.android.synthetic.main.activity_pengiriman.tv_totalBelanja
 import kotlinx.android.synthetic.main.activity_pengiriman_beli.*
 import kotlinx.android.synthetic.main.toolbar_baru.*
 import retrofit2.Call
@@ -73,7 +66,7 @@ class PengirimanBeliActivity : AppCompatActivity() {
 
         val adapter = ArrayAdapter<Any>(this, R.layout.item_dropdown, arrayString.toTypedArray())
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spn_kurir.adapter = adapter
+        spn_kurir.setAdapter(adapter)
         spn_kurir.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
 

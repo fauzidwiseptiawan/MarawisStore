@@ -30,6 +30,8 @@ import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_pengiriman.*
 import kotlinx.android.synthetic.main.activity_pengiriman.div_kosong
+import kotlinx.android.synthetic.main.activity_pengiriman.tv_diskon
+import kotlinx.android.synthetic.main.item_produk.*
 import kotlinx.android.synthetic.main.toolbar_baru.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -40,6 +42,8 @@ class PengirimanActivity : AppCompatActivity() {
     lateinit var myDb: MyDatabase
     var totalHarga = 0
     var totalBerat = 0
+    var totalDiskon = 0
+    var hargaAsli = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,9 +52,12 @@ class PengirimanActivity : AppCompatActivity() {
         Helper().setToolbar(this, toolbar_baru, "Pengiriman")
         myDb = MyDatabase.getInstance(this)!!
 
-        totalBerat = Integer.valueOf(intent.getStringExtra("extraa")!!)
-        totalHarga = Integer.valueOf(intent.getStringExtra("extra")!!)
+        hargaAsli = Integer.valueOf(intent.getStringExtra("hargaAsli")!!)
+        totalBerat = Integer.valueOf(intent.getStringExtra("totalBerat")!!)
+        totalHarga = Integer.valueOf(intent.getStringExtra("totalHarga")!!)
+        totalDiskon = Integer.valueOf(intent.getStringExtra("totalDiskon")!!)
         tv_totalBelanja.text = Helper().gantiRupiah(totalHarga)
+        tv_diskon.text = Helper().gantiRupiah(totalDiskon)
 
         mainButton()
         setSpinner()
@@ -168,10 +175,8 @@ class PengirimanActivity : AppCompatActivity() {
         ApiConfigAlamat.instanceRetrofit.ongkir(ApiKey.key, origin, destination, berat, kurir.toLowerCase()).enqueue(object : Callback<ResponOngkir> {
             override fun onResponse(call: Call<ResponOngkir>, response: Response<ResponOngkir>) {
                 if (response.isSuccessful) {
-                    div_metode.visibility = View.GONE
                     val result = response.body()!!.rajaongkir.results
                     if (result.isNotEmpty()) {
-                        div_metode.visibility = View.GONE
                         rv_metode.visibility = View.VISIBLE
                         displayOngkir(result[0].code.toUpperCase(), result[0].costs)
                     }
@@ -190,17 +195,17 @@ class PengirimanActivity : AppCompatActivity() {
     var ongkir = ""
     var kurir = ""
     var layanan = ""
-    lateinit var adapter : AdapterKeranjang
-    var listProduk = ArrayList<Produk>()
 
-    private fun displayProduk(){
-        listProduk = myDb.daoKeranjang().getAll() as ArrayList
-        val layoutManager = LinearLayoutManager(this)
-        layoutManager.orientation = LinearLayoutManager.VERTICAL
-
-        rv_produk.adapter =  AdapterPengiriman(this, listProduk)
-        rv_produk.layoutManager = layoutManager
-    }
+//    lateinit var adapter : AdapterKeranjang
+//    var listProduk = ArrayList<Produk>()
+//    private fun displayProduk(){
+//        listProduk = myDb.daoKeranjang().getAll() as ArrayList
+//        val layoutManager = LinearLayoutManager(this)
+//        layoutManager.orientation = LinearLayoutManager.VERTICAL
+//
+//        rv_produk.adapter =  AdapterPengiriman(this, listProduk)
+//        rv_produk.layoutManager = layoutManager
+//    }
 
     private fun displayOngkir(_kurir: String, arrayList: ArrayList<Costs>){
 
@@ -244,6 +249,7 @@ class PengirimanActivity : AppCompatActivity() {
 
     fun setTotal(ongkir: String) {
         tv_ongkir.text = Helper().gantiRupiah(ongkir)
+        tv_diskon.text = Helper().gantiRupiah(totalDiskon)
         tv_total.text = Helper().gantiRupiah(Integer.valueOf(ongkir) + totalHarga)
     }
 
@@ -254,7 +260,6 @@ class PengirimanActivity : AppCompatActivity() {
 
     override fun onResume() {
         checkAlamat()
-        displayProduk()
         super.onResume()
     }
 

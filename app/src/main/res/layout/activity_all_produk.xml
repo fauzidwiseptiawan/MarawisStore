@@ -16,13 +16,13 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_all_produk_baru"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginHorizontal="@dimen/_3sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:spanCount="2"
-            tools:itemCount="6"
+            tools:itemCount="1"
             tools:listitem="@layout/item_all_produk" />
     </RelativeLayout>
 </LinearLayout>

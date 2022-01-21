@@ -53,7 +53,7 @@ class AkunFragment : Fragment() {
         }
 
         btnKeranjang.setOnClickListener {
-            startActivity(Intent(activity, KeranjangProdukActivity::class.java))
+            startActivity(Intent(activity, KeranjangActivity::class.java))
         }
 
         btnAlamat.setOnClickListener {

@@ -4,8 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.marawisstore.R
 import com.example.marawisstore.adapter.AdapterAllProduk
 import com.example.marawisstore.app.ApiConfig
@@ -42,17 +40,12 @@ class AllProdukLainActivity : AppCompatActivity() {
 
     private fun mainButton(){
         btn_toKeranjang.setOnClickListener {
-            startActivity(Intent(this@AllProdukLainActivity,KeranjangProdukActivity::class.java))
+            startActivity(Intent(this@AllProdukLainActivity,KeranjangActivity::class.java))
         }
     }
 
     private fun displayProduk(){
-        val layoutManager = GridLayoutManager(this,2)
-
-        layoutManager.orientation = LinearLayoutManager.VERTICAL
-
         rv_all_produk_baru.adapter = AdapterAllProduk(this, listProduk)
-        rv_all_produk_baru.layoutManager = layoutManager
     }
 
     fun getProdukLainnyaAll() {
@@ -81,7 +74,7 @@ class AllProdukLainActivity : AppCompatActivity() {
 
         if(dataKeranjang.isNotEmpty()){
             div_angka.visibility = View.VISIBLE
-            tv_angkaa.text = dataKeranjang.size.toString()
+            tv_angka.text = dataKeranjang.size.toString()
         } else{
             div_angka.visibility = View.GONE
         }

@@ -41,7 +41,7 @@ class AllProdukTerbaruActivity : AppCompatActivity() {
 
     private fun mainButton(){
         btn_toKeranjang.setOnClickListener {
-            startActivity(Intent(this@AllProdukTerbaruActivity,KeranjangProdukActivity::class.java))
+            startActivity(Intent(this@AllProdukTerbaruActivity,KeranjangActivity::class.java))
         }
     }
 
@@ -53,7 +53,7 @@ class AllProdukTerbaruActivity : AppCompatActivity() {
         ApiConfig.instanceRetrofit.getProductTerbaruAll().enqueue(object : Callback<ResponModel> {
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
                 //Handle ketika gagal
-
+                
             }
 
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
@@ -72,7 +72,7 @@ class AllProdukTerbaruActivity : AppCompatActivity() {
 
         if(dataKeranjang.isNotEmpty()){
             div_angka.visibility = View.VISIBLE
-            tv_angkaa.text = dataKeranjang.size.toString()
+            tv_angka.text = dataKeranjang.size.toString()
         } else{
             div_angka.visibility = View.GONE
         }

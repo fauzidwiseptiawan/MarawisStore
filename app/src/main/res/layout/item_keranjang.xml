@@ -22,42 +22,71 @@
                 android:layout_height="wrap_content" />
             <ImageView
                 android:id="@+id/img_produk"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:src="@drawable/blank" />
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:src="@color/color_300" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="@dimen/_10sdp">
+                android:orientation="vertical">
                 <TextView
-                    android:padding="@dimen/_5sdp"
                     android:id="@+id/tv_nama"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/mmedium"
+                    android:maxLines="1"
+                    android:text="Nama produk"
+                    android:textSize="@dimen/_11ssp" />
+                <TextView
+                    android:id="@+id/tv_harga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_5sdp"
                     android:ellipsize="end"
-                    android:maxLines="3"
                     android:fontFamily="@font/mmedium"
-                    android:textSize="@dimen/_12ssp"
-                    android:text="Nama Produk"/>
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:text="Rp. 10.000"
+                    android:textSize="@dimen/_11ssp" />
                 <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/ly_diskon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginStart="@dimen/_10sdp">
-                    <TextView
-                        android:padding="@dimen/_5sdp"
-                        android:id="@+id/tv_harga"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ellipsize="end"
+                        android:backgroundTint="@color/colorPrimaryVariant"
+                        app:cardElevation="0dp">
+                        <TextView
+                            android:id="@+id/tv_persen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_3sdp"
+                            android:layout_marginVertical="@dimen/_3sdp"
+                            android:text="10%"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_10sdp"
+                            android:textStyle="bold" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/tv_diskon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_600"
+                        android:layout_marginStart="@dimen/_5sdp"
                         android:text="Rp.10.000"
-                        android:fontFamily="@font/mmedium"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_10sdp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -68,7 +97,6 @@
             <RelativeLayout
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:background="@drawable/bg_btn_keranjang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:focusable="true">
@@ -77,7 +105,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_margin="@dimen/_8sdp"
+                    android:layout_margin="@dimen/_5sdp"
                     app:srcCompat="@drawable/ic_baseline_delete_orange" />
             </RelativeLayout>
             <LinearLayout
@@ -89,9 +117,9 @@
                 android:orientation="horizontal">
                 <RelativeLayout
                     android:layout_width="@dimen/_100sdp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_20sdp"
                     android:background="@drawable/bg_penambahan"
-                    android:padding="@dimen/_5sdp">
+                    android:padding="@dimen/_1sdp">
                     <ImageView
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"

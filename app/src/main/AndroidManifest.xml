@@ -30,9 +30,8 @@
         <activity android:name=".activity.DetailProdukActivity" />
         <activity android:name=".activity.FavoritProdukActivity" />
         <activity android:name=".activity.AllProdukLainActivity" />
-        <activity android:name=".activity.DetailKategoriActivity" />
         <activity android:name=".activity.AllProdukTerbaruActivity" />
-        <activity android:name=".activity.KeranjangProdukActivity" />
+        <activity android:name=".activity.KeranjangActivity" />
         <activity android:name=".activity.TambahAlamatActivity" />
         <activity android:name=".activity.ListAlamatActivity" />
         <activity android:name=".activity.PengirimanActivity"/>
